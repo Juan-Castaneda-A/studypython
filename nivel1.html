@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nivel 1: Los Cimientos - Aprendiendo Python</title>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css" />
+    
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+    <header class="container">
+        <hgroup>
+            <h1>🐍 Aprendiendo Python</h1>
+            <h2>Convierte tus ideas en código.</h2>
+        </hgroup>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="nivel0.html">Nivel 0: Preparación</a></li>
+                <li><a href="nivel1.html" class="secondary" aria-current="page">Nivel 1: Los Cimientos</a></li>
+                </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section>
+            <h2>Nivel 1: Los Cimientos 🧱</h2>
+            <p>Ya entramos en el terreno de la teoría y práctica. En este nivel aprenderás las herramientas básicas para darle instrucciones a la computadora. Verás que cada símbolo de un diagrama de flujo tiene su equivalente directo en código.</p>
+            
+            <hr>
+
+            <h3>"Hola Mundo" y los Comentarios (`#`)</h3>
+            <p>El primer paso en cualquier lenguaje es mostrar un mensaje. Usa la función <code>print()</code> para decirle a Python que escriba algo en la consola.</p>
+            <pre><code>print("Hola Mundo!")</code></pre>
+            <p>También puedes dejar notas en tu código que Python ignorará. Estas se llaman <strong>comentarios</strong> y empiezan con el símbolo <code>#</code> y sonn muy útiles para recordar qué hace cada parte de nuestro programa.</p>
+            <pre><code># Esta línea imprime un saludo. Python la ignora.
+print("Esto sí se mostrará.")</code></pre>
+
+            <hr>
+
+            <h3>Variables, Tipos de Datos y Entrada de Usuario (`input()`)</h3>
+            <p>Una <strong>variable</strong> es como una caja con una etiqueta donde guardamos información. Puedes guardar diferentes tipos de datos:</p>
+            <ul>
+                <li><strong>String (str):</strong> Texto, siempre entre comillas. Ej: <code>nombre = "Ana"</code></li>
+                <li><strong>Integer (int):</strong> Números enteros. Ej: <code>edad = 25</code></li>
+                <li><strong>Float (float):</strong> Números con decimales. Ej: <code>altura = 1.68</code></li>
+                <li><strong>Boolean (bool):</strong> Solo puede ser <code>True</code> o <code>False</code>. Ej: <code>es_estudiante = True</code></li>
+            </ul>
+            <p>Para que tu programa sea interactivo, necesitas pedirle información al usuario. Para eso usas <code>input()</code>. Importante! <code>input()</code> siempre guarda la información como texto (string), así que si necesitas un número, debes convertirlo.</p>
+            <pre><code>nombre_usuario = input("Por favor, dime tu nombre: ")
+print(f"¡Hola, {nombre_usuario}!")
+
+# Si pedimos un número, hay que convertirlo con int() o float()
+edad_texto = input("¿Cuántos años tienes? ")
+edad_numero = int(edad_texto)
+print(f"En 10 años tendrás {edad_numero + 10} años.")</code></pre>
+
+            <hr>
+
+            <h3>Operadores: Las Herramientas de Cálculo y Comparación</h3>
+            <p>Python puede funcionar como una calculadora y también puede comparar valores.</p>
+            <ul>
+                <li><strong>Matemáticos:</strong> <code>+</code> (suma), <code>-</code> (resta), <code>*</code> (multiplicación), <code>/</code> (división), <code>%</code> (residuo).</li>
+                <li><strong>Lógicos:</strong> <code>==</code> (es igual a), <code>!=</code> (es diferente de), <code><</code> (menor que), <code>></code> (mayor que), <code><=</code> (menor o igual que), <code>>=</code> (mayor o igual que).</li>
+            </ul>
+
+            <hr>
+
+            <h3>Condicionales: La Toma de Decisiones (`if`, `elif`, `else`)</h3>
+            <p>Esto es el equivalente al rombo en un diagrama de flujo. Permite que tu programa elija un camino dependiendo de si una condición es verdadera o falsa. <strong>La indentación (el espacio a la izquierda) es obligatoria</strong> y le dice a Python qué código pertenece a cada camino.</p>
+            <pre><code>edad = 19
+
+if edad < 18:
+    print("Eres menor de edad.") # Este bloque solo se ejecuta si la edad es menor a 18
+elif edad >= 18 and edad < 65:
+    print("Eres un adulto.") # Si lo de arriba es falso, revisa esta condición
+else:
+    print("Eres un adulto mayor.") # Si nada de lo anterior es verdad, ejecuta esto</code></pre>
+            
+            <hr>
+
+            <h3>Bucles: Repitiendo Tareas (`while` y `for`)</h3>
+            <p>Los bucles sirven para repetir un bloque de código varias veces sin tener que reescribirlo.</p>
+            <h4>Bucle `while`</h4>
+            <p>Repite el código <strong>mientras</strong> una condición sea verdadera. Es perfecto para cuando no sabemos cuántas veces necesitamos repetir algo.</p>
+            <pre><code># Adivina el número secreto
+numero_secreto = 7
+adivinanza = 0 # Inicializamos la variable
+
+while adivinanza != numero_secreto:
+    adivinanza = int(input("Adivina el número (entre 1 y 10): "))
+
+print("¡Felicidades! ¡Lo adivinaste!")</code></pre>
+            <h4>Bucle `for`</h4>
+            <p>Repite el código un número específico de veces. Es ideal para recorrer listas o para contar.</p>
+            <pre><code># Imprime los números del 1 al 5
+for numero in range(1, 6): # range(1, 6) genera los números 1, 2, 3, 4, 5
+    print(numero)</code></pre>
+            
+            <hr>
+
+            <article>
+                <h3>Mini-Proyecto de Cierre: Piedra, Papel o Tijera</h3>
+                <p>Con lo que acabas de ver, puedes construir tu primer juego completo. Este proyecto usará variables, <code>input()</code>, condicionales y un bucle para crear una experiencia interactiva.</p>
+                <p>Te daré una guía detallada paso a paso para que sepas exactamente cómo construirlo, explicando la lógica detrás de cada parte.</p>
+                <footer>
+                    <a href="proyecto1.html" role="button">Construye el juego 🗿📄✂️</a>
+                </footer>
+            </article>
+
+        </section>
+    </main>
+
+    <footer class="container">
+        <p>Pythoooonnn</p>
+    </footer>
+
+</body>
+</html>
