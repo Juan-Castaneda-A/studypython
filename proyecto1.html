@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto 1: Piedra, Papel o Tijera - Aprendiendo Python</title>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css" />
+    
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header class="container">
+        <hgroup>
+            <h1>🐍 Aprendiendo Python</h1>
+            <h2>Proyecto del Nivel 1</h2>
+        </hgroup>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="nivel0.html">Nivel 0</a></li>
+                <li><a href="nivel1.html" class="secondary" aria-current="page">Volver al Nivel 1</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <article>
+            <header>
+                <h2>Mini-Proyecto: Piedra, Papel o Tijera 🗿📄✂️</h2>
+                <p>Felicidades por llegar a tu primer proyecto en la página. Aquí es donde todo lo que aprendiste en el Nivel 1 (variables, <code>input</code>, <code>if/elif/else</code>, y bucles) cobra vida. Vas a construir, paso a paso (te explicaré que tienes que hacer), el juego de Piedra, Papel o Tijera.</p>
+            </header>
+            
+            <hr>
+
+            <h3>Paso 1: La Planificación (las recetas)</h3>
+            <p>Antes de escribir código, piensa en lo que necesitas que haga el programa, y anótalas (aquí puedes omitir esto porque las recetas ya están, pero cuando tengas que hacer un proyecto real en tu U, trata de pensar en eso, ya que así piensan los programadores). Nuestra "receta" es:</p>
+            <ol>
+                <li>Darle la bienvenida al jugador.</li>
+                <li>Empezar un bucle para que el juego continúe hasta que decidamos parar.</li>
+                <li>Pedirle al jugador que elija entre "piedra", "papel" o "tijera".</li>
+                <li>Hacer que la computadora elija una de las tres opciones al azar.</li>
+                <li>Comparar las dos elecciones para ver quién gana.</li>
+                <li>Mostrar el resultado (¡Ganaste!, ¡Perdiste! o ¡Es un empate!).</li>
+                <li>Preguntar si el jugador quiere seguir jugando. Si dice "no", terminamos el juego.</li>
+            </ol>
+
+            <hr>
+
+            <h3>Paso 2: Importar una Herramienta Mágica (`random`)</h3>
+            <p>Para que la computadora elija al azar, necesitamos una "caja de herramientas" que ya viene con Python. Esta se llama <code>random</code>. La primera línea de nuestro código será para importarla y tenerla lista para usar. Este proceso de importar lo usarás demasiado en proyectos intermedios o avanzados, ya que facilita mucho las cosas.</p>
+            <pre><code>import random  # Importamos la librería para generar aleatoriedad</code></pre>
+
+            <hr>
+
+            <h3>Paso 3: El Bucle Principal y la Jugada del Usuario</h3>
+            <p>Usaremos un bucle <code>while True</code>. Esto crea un ciclo infinito que solo se detendrá cuando se lo digas explícitamente. Dentro del bucle, pedirás la jugada al usuario con <code>input()</code>. Usarás <code>.lower()</code> para convertir su respuesta a minúsculas y evitar errores si escribe "Piedra" en lugar de "piedra".</p>
+            <pre><code>while True:
+    jugada_usuario = input("Elige piedra, papel o tijera: ").lower()</code></pre>
+
+            <hr>
+
+            <h3>Paso 4: La Jugada de la Computadora</h3>
+            <p>Ahora, le toca a la computadora. Crearás una lista con las opciones posibles y usarás <code>random.choice()</code> para que elija una de ellas (aquí es donde hacemos uso de la librería que importamos anteriormente).</p>
+            <pre><code>    opciones = ["piedra", "papel", "tijera"]
+    jugada_computadora = random.choice(opciones)
+    print(f"La computadora eligió: {jugada_computadora}")</code></pre>
+
+            <hr>
+
+            <h3>Paso 5: La Lógica de las Comparaciones (`if/elif/else`)</h3>
+            <p>Esta es la parte central del juego. En el código haremos que se comparen las jugadas para determinar el resultado. Primero, el caso más fácil: el empate. Luego, todos los casos en los que gana el usuario. Si no es empate y tampoco gana el usuario, entonces, por descarte, ¡pierde!</p>
+            <pre><code>    if jugada_usuario == jugada_computadora:
+        print("Es empate!")
+    elif (jugada_usuario == "piedra" and jugada_computadora == "tijera") or \
+         (jugada_usuario == "tijera" and jugada_computadora == "papel") or \
+         (jugada_usuario == "papel" and jugada_computadora == "piedra"):
+        print("Ganaste!")
+    else:
+        print("Perdiste!😢")</code></pre>
+            
+            <hr>
+
+            <h3>Paso 6: ¿Otra Ronda?</h3>
+            <p>Al final de cada ronda, le preguntaremos al usuario si quiere continuar. Si su respuesta no es "si", usaremos la palabra clave <code>break</code> para romper el bucle <code>while True</code> y terminar el programa.</p>
+            <pre><code>    jugar_de_nuevo = input("¿Quieres jugar otra vez? (si/no): ").lower()
+    if jugar_de_nuevo != "si":
+        break
+
+print("¡Gracias por jugar!") # Este mensaje solo aparece al salir del bucle
+</code></pre>
+
+            <hr>
+
+            <h3>El Código Completo</h3>
+            <p>Aquí tienes todas las piezas juntas. ¡Pruébalo en Replit y mira cómo funciona!</p>
+            <pre><code>import random
+
+print("¡Bienvenida al juego de Piedra, Papel o Tijera!")
+
+while True:
+    # Pedimos la jugada al usuario
+    jugada_usuario = input("Elige piedra, papel o tijera: ").lower()
+
+    # Hacemos que la computadora elija
+    opciones = ["piedra", "papel", "tijera"]
+    jugada_computadora = random.choice(opciones)
+    print(f"La computadora eligió: {jugada_computadora}")
+
+    # Comparamos para determinar el resultado
+    if jugada_usuario == jugada_computadora:
+        print("Es empate!")
+    elif (jugada_usuario == "piedra" and jugada_computadora == "tijera") or \
+         (jugada_usuario == "tijera" and jugada_computadora == "papel") or \
+         (jugada_usuario == "papel" and jugada_computadora == "piedra"):
+        print("Ganaste!")
+    else:
+        print("Perdiste!😢")
+
+    # Preguntamos si quiere jugar de nuevo
+    jugar_de_nuevo = input("¿Quieres jugar otra vez? (si/no): ").lower()
+    if jugar_de_nuevo != "si":
+        break
+
+print("Gracias por jugar :)")
+</code></pre>
+            
+            <hr>
+
+            <footer>
+                <h3>🏆 Reto Opcional:</h3>
+                <p>Si lo deseas, puedes intentar modificar el juego para incluir unas reglas "x", por ejemplo: de "Piedra, Papel, Tijera, Lagarto, Fuego". Tendrás que:</p>
+                <ul>
+                    <li>Añadir "lagarto" y "fuego" a la lista de <code>opciones</code>.</li>
+                    <li>Añadir más condiciones <code>elif</code> para cubrir las nuevas reglas de victoria. (por ej: tijera decapita lagarto, spock vaporiza piedra, etc., como tu lo desees).</li>
+                </ul>
+                <p>Has completado tu primer proyecto! Ahora tienes una base más o menos sólida para todo lo que viene. En el siguiente sabrás sobre estructura de datos, muy importante para los estadísticos y matemáticos.</p>
+                <a href="nivel2.html" role="button">Sigue con el nivel 2 (en desarrollo)</a>
+            </footer>
+        </article>
+    </main>
+
+    <footer class="container">
+        <p>a</p>
+    </footer>
+
+</body>
+</html>
