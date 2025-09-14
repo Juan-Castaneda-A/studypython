@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto 3: Agenda de Contactos - Aprendiendo Python</title>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css" />
+    
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header class="container">
+        <hgroup>
+            <h1>🐍 Aprendiendo Python</h1>
+            <h2>Proyecto del Nivel 3</h2>
+        </hgroup>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="nivel0.html">Nivel 0</a></li>
+                <li><a href="nivel1.html">Nivel 1</a></li>
+                <li><a href="nivel2.html">Nivel 2</a></li>
+                <li><a href="nivel3.html" class="secondary" aria-current="page">Volver al Nivel 3</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <article>
+            <header>
+                <h2>Mini-Proyecto: Agenda de Contactos con Guardado 📖</h2>
+                <p>Bienvenida al proyecto final de los fundamentos! Aquí es donde demostrarás todo lo aprendido. Crearás una agenda de contactos que utiliza <strong>Clases</strong> para modelar los datos, los guarda en un <strong>archivo JSON</strong> para no perderlos y maneja <strong>errores</strong> para ser una aplicación robusta.</p>
+            </header>
+            
+            <hr>
+
+            <h3>Paso 1: El Plano (`class Contacto`)</h3>
+            <p>Primero, necesitas un "plano" para cada contacto. Crearás una clase `Contacto` que guardará el nombre, teléfono y email. También añadirás un método especial, `__str__`, que te dará una representación bonita del contacto en texto, lo cual es muy útil para imprimirlo.</p>
+            <pre><code>class Contacto:
+    def __init__(self, nombre, telefono, email):
+        self.nombre = nombre
+        self.telefono = telefono
+        self.email = email
+
+    def __str__(self):
+        # Este método define cómo se "imprime" el objeto
+        return f"Nombre: {self.nombre}, Teléfono: {self.telefono}, Email: {self.email}"
+</code></pre>
+
+            <hr>
+            
+            <h3>Paso 2: La Lógica de Guardado y Carga (con `json` y `try...except`)</h3>
+            <p>Necesitas una forma de guardar nuestra lista de contactos en un archivo y cargarla cuando el programa inicie. Crearás dos funciones para esto. Usarás `try...except` en la función de carga para manejar el caso en que el archivo aún no exista (la primera vez que se ejecuta el programa).</p>
+            <pre><code>import json
+
+def guardar_contactos(lista_contactos):
+    # Conviertes los objetos a diccionarios para poder guardarlos en JSON
+    contactos_dict = [vars(contacto) for contacto in lista_contactos]
+    with open("contactos.json", "w") as archivo:
+        json.dump(contactos_dict, archivo, indent=4) # indent=4 lo hace más legible, consideralo como algo por defecto
+
+def cargar_contactos():
+    try:
+        with open("contactos.json", "r") as archivo:
+            contactos_dict = json.load(archivo)
+            # Conviertes los diccionarios de vuelta a objetos Contacto
+            return [Contacto(**data) for data in contactos_dict]
+    except FileNotFoundError:
+        # Si el archivo no existe, devuelve una lista vacía
+        return []
+</code></pre>
+            
+            <hr>
+
+            <h3>Paso 3: El Menú Principal y las Acciones</h3>
+            <p>Ahora, crearás el bucle principal que mostrará el menú. Al inicio del programa, llamarás a `cargar_contactos()` para tener la lista lista. Las opciones del menú llamarán a funciones que manipularán esta lista.</p>
+            <pre><code># --- Funciones para las acciones del menú ---
+def agregar_nuevo_contacto(lista_contactos):
+    nombre = input("Nombre: ")
+    telefono = input("Teléfono: ")
+    email = input("Email: ")
+    nuevo = Contacto(nombre, telefono, email)
+    lista_contactos.append(nuevo)
+    print("Contacto agregado.")
+
+def ver_todos_los_contactos(lista_contactos):
+    if not lista_contactos:
+        print("La agenda está vacía.")
+        return
+    for contacto in lista_contactos:
+        print(contacto) # Gracias al método __str__, esto se ve genial
+
+# --- Bucle principal ---
+def main():
+    contactos = cargar_contactos() # Se cargan los contactos al iniciar
+
+    while True:
+        print("\n--- Agenda de Contactos ---")
+        print("1. Agregar contacto")
+        print("2. Ver todos los contactos")
+        print("3. Salir")
+        
+        opcion = input("Elige una opción: ")
+        
+        if opcion == "1":
+            agregar_nuevo_contacto(contactos)
+        elif opcion == "2":
+            ver_todos_los_contactos(contactos)
+        elif opcion == "3":
+            guardar_contactos(contactos) # Guardamos antes de salir
+            print("Agenda guardada. Adiós.")
+            break
+        else:
+            print("Opción no válida.")
+
+# Esto asegura que el programa se ejecute
+if __name__ == "__main__":
+    main()
+</code></pre>
+            <p>La línea <code>if __name__ == "__main__":</code> es una convención en Python para indicar el punto de inicio del programa.</p>
+
+            <hr>
+
+            <h3>El Código Completo</h3>
+            <p>Aquí está el programa completo. Es el más grande que hemos hecho, gracias a las clases y funciones, se notará más ordenado el código, un código ordenado es menos propenso a errores.</p>
+            <pre><code>import json
+
+class Contacto:
+    def __init__(self, nombre, telefono, email):
+        self.nombre = nombre
+        self.telefono = telefono
+        self.email = email
+
+    def __str__(self):
+        return f"Nombre: {self.nombre}, Teléfono: {self.telefono}, Email: {self.email}"
+
+def guardar_contactos(lista_contactos):
+    contactos_dict = [vars(contacto) for contacto in lista_contactos]
+    with open("contactos.json", "w") as archivo:
+        json.dump(contactos_dict, archivo, indent=4)
+
+def cargar_contactos():
+    try:
+        with open("contactos.json", "r") as archivo:
+            contactos_dict = json.load(archivo)
+            return [Contacto(**data) for data in contactos_dict]
+    except FileNotFoundError:
+        return []
+
+def agregar_nuevo_contacto(lista_contactos):
+    nombre = input("Nombre: ")
+    telefono = input("Teléfono: ")
+    email = input("Email: ")
+    nuevo = Contacto(nombre, telefono, email)
+    lista_contactos.append(nuevo)
+    print("Contacto agregado,")
+
+def ver_todos_los_contactos(lista_contactos):
+    if not lista_contactos:
+        print("La agenda está vacía.")
+        return
+    print("\n--- Mis Contactos ---")
+    for contacto in lista_contactos:
+        print(contacto)
+    print("-------------------")
+
+def main():
+    contactos = cargar_contactos()
+
+    while True:
+        print("\n--- Agenda de Contactos ---")
+        print("1. Agregar contacto")
+        print("2. Ver todos los contactos")
+        print("3. Salir")
+        
+        opcion = input("Elige una opción: ")
+        
+        if opcion == "1":
+            agregar_nuevo_contacto(contactos)
+        elif opcion == "2":
+            ver_todos_los_contactos(contactos)
+        elif opcion == "3":
+            guardar_contactos(contactos)
+            print("Agenda guardada. Adiós.")
+            break
+        else:
+            print("Opción no válida.")
+
+if __name__ == "__main__":
+    main()
+</code></pre>
+
+            <hr>
+
+            <footer>
+                <h3>🏆 Reto Opcional: Mejora la Agenda!</h3>
+                <p>Tu agenda es funcional, pero siempre se puede mejorar. Intenta añadir nuevas funciones como:</p>
+                <ul>
+                    <li><strong>Buscar un contacto</strong> por nombre.</li>
+                    <li><strong>Eliminar un contacto</strong>.</li>
+                </ul>
+                <p>Y listo. Has construido una aplicación completa, robusta y persistente. Has completado los fundamentos de Python y ahora tienes las habilidades para empezar a construir lo que imagines.</p>
+                <a href="nivel4.html" role="button">Quieres ir al nivel final?</a>
+            </footer>
+        </article>
+    </main>
+
+</body>
+</html>
