@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nivel 2: Organización y Estructura - Aprendiendo Python</title>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css" />
+    
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+    <header class="container">
+        <hgroup>
+            <h1>🐍 Aprendiendo Python Juntos</h1>
+            <h2>Un viaje para convertir ideas en código.</h2>
+        </hgroup>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="nivel0.html">Nivel 0</a></li>
+                <li><a href="nivel1.html">Nivel 1</a></li>
+                <li><a href="nivel2.html" class="secondary" aria-current="page">Nivel 2: Estructura</a></li>
+                </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section>
+            <h2>Nivel 2: Organización y Estructura 🗂️</h2>
+            <p>¡Bienvenida al siguiente nivel! Ahora que ya sabes dar instrucciones básicas, es hora de aprender a organizar mejor la información y a crear herramientas reutilizables. Pasaremos de escribir "scripts" a construir programas más limpios y potentes.</p>
+            
+            <hr>
+
+            <h3>Estructuras de Datos: Listas y Diccionarios</h3>
+            <p>Hasta ahora, cada variable guardaba una sola cosa. Las estructuras de datos son como "contenedores" especiales que nos permiten guardar colecciones de información.</p>
+            
+            <h4>Listas `[]`</h4>
+            <p>Una lista es una colección <strong>ordenada</strong> de elementos. Imagina que es como una lista de compras o los vagones de un tren. Puedes añadir, quitar y modificar sus elementos.</p>
+            <pre><code># Una lista de compras
+compras = ["Manzanas", "Leche", "Pan"]
+
+# Acceder a un elemento (la numeración empieza en 0)
+print(compras[0])  # Muestra: Manzanas
+
+# Añadir un elemento al final
+compras.append("Huevos")
+print(compras) # Muestra: ['Manzanas', 'Leche', 'Pan', 'Huevos']
+
+# Quitar un elemento
+compras.remove("Leche")
+print(compras) # Muestra: ['Manzanas', 'Pan', 'Huevos']</code></pre>
+
+            <h4>Diccionarios `{}`</h4>
+            <p>Un diccionario es una colección de pares <strong>clave-valor</strong>, no ordenada. Imagina una agenda de contactos: la "clave" es el nombre de la persona y el "valor" es su número de teléfono. Son extremadamente útiles para relacionar datos.</p>
+            <pre><code># Un diccionario para guardar información de una persona
+persona = {
+    "nombre": "Ana",
+    "edad": 25,
+    "ciudad": "Bogotá"
+}
+
+# Acceder a un valor usando su clave
+print(persona["nombre"]) # Muestra: Ana
+
+# Añadir un nuevo par clave-valor
+persona["profesion"] = "Ingeniera"
+print(persona) # Muestra el diccionario con la nueva información
+</code></pre>
+
+            <h4>Otras Estructuras (para que las conozcas)</h4>
+            <ul>
+                <li><strong>Tuplas `()`:</strong> Son como las listas, pero <strong>inmutables</strong> (no se pueden cambiar después de crearlas). Se usan para datos que deben permanecer constantes.</li>
+                <li><strong>Conjuntos (Sets):</strong> Son colecciones de elementos <strong>únicos</strong> y sin orden. Útiles para eliminar duplicados o hacer operaciones matemáticas de conjuntos.</li>
+            </ul>
+
+            <hr>
+
+            <h3>Funciones (`def`): Creando Tus Propias Herramientas</h3>
+            <p>Una función es un bloque de código reutilizable al que le ponemos un nombre. Es como crear una "receta" o un "mini-programa" que podemos llamar cuando queramos. Esto evita repetir código y hace nuestros programas mucho más organizados.</p>
+            <p>Las funciones pueden recibir "ingredientes" (llamados <strong>parámetros</strong>) y devolver un resultado (con <code>return</code>).</p>
+            <pre><code># Definimos una función que saluda a alguien
+def saludar(nombre):
+    mensaje = f"Hola, {nombre}, ¡qué bueno verte!"
+    return mensaje
+
+# Ahora usamos nuestra función
+saludo_para_ana = saludar("Ana")
+print(saludo_para_ana) # Muestra: Hola, Ana, ¡qué bueno verte!
+
+saludo_para_juan = saludar("Juan")
+print(saludo_para_juan) # Muestra: Hola, Juan, ¡qué bueno verte!
+</code></pre>
+
+            <hr>
+
+            <h3>Alcance de Variables (Scope)</h3>
+            <p>Este es un concepto importante. Las variables que creas <strong>dentro</strong> de una función (locales) solo existen y pueden ser usadas dentro de esa función. Las variables creadas <strong>fuera</strong> de todas las funciones (globales) pueden ser accedidas desde cualquier parte.</p>
+            <p>Imagina que tu programa es una casa: las funciones son las habitaciones. Una variable creada en una habitación (local) solo se puede usar ahí. Una variable en el pasillo principal (global) se puede ver desde todas las habitaciones.</p>
+             <pre><code>variable_global = "Soy visible en todas partes"
+
+def mi_funcion():
+    variable_local = "Solo existo dentro de esta función"
+    print(variable_local)
+    print(variable_global) # Puedo ver la variable global desde aquí
+
+mi_funcion()
+# print(variable_local) # Esto daría un ERROR porque no existe fuera de la función.
+</code></pre>
+
+            <hr>
+
+            <article>
+                <h3>Mini-Proyecto de Cierre: Calculadora de Gastos Personales</h3>
+                <p>¡Es hora de aplicar estos nuevos superpoderes! En este proyecto, crearás una pequeña aplicación para llevar un registro de tus gastos. Usarás listas, diccionarios y funciones para crear un programa estructurado y muy útil.</p>
+                <p>Como siempre, te guiaremos paso a paso para que veas cómo estas herramientas de organización hacen que un programa complejo sea mucho más fácil de construir.</p>
+                <footer>
+                    <a href="proyecto2.html" role="button">¡Vamos a organizar las finanzas! 💸</a>
+                </footer>
+            </article>
+
+        </section>
+    </main>
+
+</body>
+</html>
