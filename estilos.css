@@ -1,0 +1,39 @@
+/* Contenedor principal para las columnas */
+.solucion-columnas {
+    display: flex; /* Activa el modo Flexbox */
+    flex-wrap: wrap; /* Permite que las columnas se muevan si no caben */
+    gap: 1rem; /* Espacio entre las columnas */
+    margin-top: 1.5rem;
+}
+
+/* Estilo para cada columna individual */
+.columna {
+    flex: 1; /* Hace que cada columna intente ocupar el mismo espacio */
+    min-width: 280px; /* Ancho mínimo antes de que se rompa la línea */
+    border: 1px solid var(--contrast-border-color);
+    padding: 1rem;
+    border-radius: var(--border-radius);
+}
+
+/* Estilo para el contenido que estará oculto por defecto */
+/* .contenido-oculto {
+    display: none; 
+    margin-top: 1rem;
+    border-top: 1px solid var(--contrast-border-color);
+    padding-top: 1rem;
+} */
+
+/* Pequeño ajuste para el botón */
+.boton-revelar {
+    width: 100%;
+}
+
+/* Estilo para el contenido oculto (con preparación para la animación) */
+.contenido-oculto {
+    max-height: 0; /* Ocultamos el contenido colapsando su altura */
+    overflow: hidden; /* Esconde lo que se salga del max-height */
+    transition: max-height 0.4s ease-out; /* La animación suave */
+    margin-top: 1rem;
+    border-top: 1px solid var(--contrast-border-color);
+    padding-top: 0;
+}
