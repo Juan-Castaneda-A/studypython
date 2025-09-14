@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css" />
     
     <link rel="stylesheet" href="styles.css">
+
+    <link rel="stylesheet" href="https://pyscript.net/releases/2024.1.1/core.css">
+    <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
 </head>
 <body>
 
@@ -129,18 +132,56 @@ print("Gracias por jugar :)")
             <hr>
 
             <footer>
-                <h3>🏆 Reto Opcional:</h3>
-                <p>Si lo deseas, puedes intentar modificar el juego para incluir unas reglas "x", por ejemplo: de "Piedra, Papel, Tijera, Lagarto, Fuego". Tendrás que:</p>
-                <ul>
-                    <li>Añadir "lagarto" y "fuego" a la lista de <code>opciones</code>.</li>
-                    <li>Añadir más condiciones <code>elif</code> para cubrir las nuevas reglas de victoria. (por ej: tijera decapita lagarto, fuego vaporiza piedra, etc., como tu lo desees).</li>
-                </ul>
-                <p>Has completado tu primer proyecto! Ahora tienes una base más o menos sólida para todo lo que viene. En el siguiente sabrás sobre estructura de datos, muy importante para los estadísticos y matemáticos.</p>
-                <a href="nivel2.html" role="button">Sigue con el nivel 2</a>
-            </footer>
+                <h3>🏆 Reto Opcional Interactivo:</h3>
+                <p>Usa el editor de código de abajo para modificar el juego. Tienes que añadir "lagarto" y "spock" a la lista de opciones y luego expandir la lógica <code>if/elif/else</code> para incluir las nuevas reglas de victoria. ¡Puedes editar y ejecutar el código aquí mismo!</p>
+            
+            <button id="boton-pista">Necesito una pista</button>
+            <div id="pista" style="display:none; margin-top: 1rem; padding: 1rem; border: 1px dashed grey;">
+                <p><strong>Pista:</strong> ¡No te compliques! Solo necesitas añadir más condiciones <code>or</code> dentro del bloque <code>elif</code> principal. Por ejemplo, una de las nuevas condiciones de victoria para el usuario sería:<br>
+                <code>(jugada_usuario == "spock" and jugada_computadora == "tijera")</code>
+                </p>
+            </div>
+
+            <py-editor>
+import random
+
+print("¡Bienvenida al juego de Piedra, Papel o Tijera!")
+
+while True:
+    jugada_usuario = input("Elige piedra, papel o tijera: ").lower()
+
+    opciones = ["piedra", "papel", "tijera"]
+    jugada_computadora = random.choice(opciones)
+    print(f"La computadora eligió: {jugada_computadora}")
+
+    if jugada_usuario == jugada_computadora:
+        print("¡Es un empate!")
+    elif (jugada_usuario == "piedra" and jugada_computadora == "tijera") or \
+         (jugada_usuario == "tijera" and jugada_computadora == "papel") or \
+         (jugada_usuario == "papel" and jugada_computadora == "piedra"):
+        print("¡Ganaste! 🎉")
+    else:
+        print("¡Perdiste! 😢")
+
+    jugar_de_nuevo = input("¿Quieres jugar otra vez? (si/no): ").lower()
+    if jugar_de_nuevo != "si":
+        break
+
+print("¡Gracias por jugar!")
+            </py-editor>
+        </section>
+        
+        <hr>
+        <p>¡Has completado tu primer proyecto! Ahora tienes una base sólida para todo lo que viene. ¿Lista para organizar mejor tu código y manejar más datos?</p>
+        <a href="nivel2.html" role="button">¡Sí! ¡Vamos al Nivel 2!</a>
+    </footer>
         </article>
-    </main>
 
-
+<script>
+        document.getElementById('boton-pista').addEventListener('click', function() {
+            const pista = document.getElementById('pista');
+            pista.style.display = 'block';
+        });
+    </script>
 </body>
 </html>
