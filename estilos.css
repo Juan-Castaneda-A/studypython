@@ -37,3 +37,10 @@
     border-top: 1px solid var(--contrast-border-color);
     padding-top: 0;
 }
+
+/* Hace que las imágenes dentro de las columnas sean responsivas */
+.columna img {
+    max-width: 100%;
+    height: auto;
+    display: block; /* Ayuda a evitar espacios extra debajo de la imagen */
+}

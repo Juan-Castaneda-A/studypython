@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+    <link rel="stylesheet" href="estilos1.css">
+    <title>Taller de Ejercicios</title>
+</head>
+<body>
+    <header class="container">
+        <h1>Taller de Ejercicios de Lógica</h1>
+        <p>Haz clic en un ejercicio para expandirlo. ¡Tu progreso se guardará automáticamente!</p>
+    </header>
+
+    <div class="taller-layout">
+        <nav id="indice-lateral"></nav>
+
+        <main id="contenido-principal">
+            
+            <details class="ejercicio-acordeon" id="ejercicio-1">
+                <summary>
+                    <div class="titulo-ejercicio">
+                        <strong>Ejercicio 1:</strong> Área de un Triángulo
+                    </div>
+                    <div class="info-ejercicio">
+                        <span class="dificultad facil">Fácil</span>
+                        <label class="checklist-container">
+                            <input type="checkbox" class="checklist"> Hecho
+                        </label>
+                    </div>
+                </summary>
+                <div class="contenido-ejercicio">
+                    <p><strong>Pistas Claves:</strong></p>
+                    <ul>
+                        <li>Necesitarás pedirle al usuario dos datos: la base y la altura.</li>
+                        <li>Recuerda que la fórmula es: (base * altura) / 2.</li>
+                    </ul>
+                    <div class="solucion-columnas">
+                        </div>
+                </div>
+            </details>
+            <details class="ejercicio-acordeon" id="ejercicio-2">
+                <summary>
+                    <div class="titulo-ejercicio">
+                        <strong>Ejercicio 2:</strong> Convertir Grados Celsius a Fahrenheit
+                    </div>
+                    <div class="info-ejercicio">
+                        <span class="dificultad intermedio">Intermedio</span>
+                        <label class="checklist-container">
+                            <input type="checkbox" class="checklist"> Hecho
+                        </label>
+                    </div>
+                </summary>
+                <div class="contenido-ejercicio">
+                    <p><strong>Pistas Claves:</strong></p>
+                    <ul>
+                        <li>La fórmula es: (Celsius * 9/5) + 32.</li>
+                    </ul>
+                    <div class="solucion-columnas">
+                        </div>
+                </div>
+            </details>
+            </main>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+
+    // 1. INICIALIZAR EL RESALTADO DE CÓDIGO
+    hljs.highlightAll();
+
+    // 2. GENERAR EL ÍNDICE DINÁMICAMENTE
+    const indiceNav = document.getElementById('indice-lateral');
+    const ejercicios = document.querySelectorAll('.ejercicio-acordeon');
+    const listaIndice = document.createElement('ul');
+    
+    const tituloIndice = document.createElement('h4');
+    tituloIndice.textContent = 'Índice de Ejercicios';
+    indiceNav.appendChild(tituloIndice);
+
+    ejercicios.forEach(ejercicio => {
+        const titulo = ejercicio.querySelector('.titulo-ejercicio').textContent.trim();
+        const id = ejercicio.id;
+
+        const listItem = document.createElement('li');
+        const link = document.createElement('a');
+        link.textContent = titulo;
+        link.href = `#${id}`;
+        
+        listItem.appendChild(link);
+        listaIndice.appendChild(listItem);
+    });
+    indiceNav.appendChild(listaIndice);
+
+    // 3. MANEJAR EL COMPORTAMIENTO DEL ACORDEÓN
+    ejercicios.forEach(ejercicio => {
+        ejercicio.addEventListener('toggle', () => {
+            // Si el ejercicio actual se está abriendo
+            if (ejercicio.open) {
+                // Cerramos todos los demás
+                ejercicios.forEach(otroEjercicio => {
+                    if (otroEjercicio !== ejercicio) {
+                        otroEjercicio.open = false;
+                    }
+                });
+            }
+        });
+    });
+
+    // 4. MANEJAR EL CHECKLIST CON LOCALSTORAGE
+    const checklists = document.querySelectorAll('.checklist');
+
+    // Función para guardar el estado
+    function guardarProgreso() {
+        const progreso = {};
+        checklists.forEach(check => {
+            const id = check.closest('.ejercicio-acordeon').id;
+            progreso[id] = check.checked;
+        });
+        localStorage.setItem('progresoTaller', JSON.stringify(progreso));
+    }
+
+    // Función para cargar el estado
+    function cargarProgreso() {
+        const progresoGuardado = JSON.parse(localStorage.getItem('progresoTaller'));
+        if (progresoGuardado) {
+            checklists.forEach(check => {
+                const id = check.closest('.ejercicio-acordeon').id;
+                if (progresoGuardado[id]) {
+                    check.checked = true;
+                }
+            });
+        }
+    }
+
+    // Añadir el listener a cada checkbox
+    checklists.forEach(check => {
+        check.addEventListener('change', guardarProgreso);
+    });
+
+    // Cargar el progreso cuando la página se carga por primera vez
+    cargarProgreso();
+});
+</script>
+</body>
+</html>

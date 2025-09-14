@@ -10,7 +10,7 @@
     <title>Ejercicios</title>
 </head>
 <body>
-    <article class="ejercicio-container">
+    <article class="ejercicio-container"> <!-- inicio ejercicio 1 -->
     <header>
         <h3>Ejercicio 1: Calcular el Área de un Triángulo</h3>
     </header>
@@ -28,16 +28,17 @@
             <h4>Pseudocódigo</h4>
             <button class="boton-revelar" onclick="toggleContenido('solucion-pseudo-1', this)">Mostrar</button>
             <div id="solucion-pseudo-1" class="contenido-oculto">
-                <pre><code>INICIO
-    ESCRIBIR "Introduce la base del triángulo:"
-    LEER base
-    ESCRIBIR "Introduce la altura del triángulo:"
-    LEER altura
-
-    area = (base * altura) / 2
-
-    ESCRIBIR "El área del triángulo es:", area
-FIN</code></pre>
+                <pre><code>Algoritmo AreaTriangulo
+	Definir base,altura,area Como Real
+	Escribir 'Introduce la base del triángulo: '
+	Leer base
+	Escribir 'Introduce la altura del triángulo: '
+	Leer altura
+	// 2. Calcular el área
+	area <- (base*altura)/2
+	// 3. Mostrar el resultado
+	Escribir 'El área del triángulo es: ',area
+FinAlgoritmo</code></pre>
             </div>
         </div>
 
@@ -45,8 +46,7 @@ FIN</code></pre>
             <h4>Diagrama de Flujo</h4>
             <button class="boton-revelar" onclick="toggleContenido('solucion-flujo-1', this)">Mostrar</button>
             <div id="solucion-flujo-1" class="contenido-oculto">
-                <p><em>(Aquí pondrías la imagen de tu diagrama de flujo. Puedes crearla en una herramienta como <a href="https://app.diagrams.net/" target="_blank">diagrams.net</a> y exportarla como PNG.)</em></p>
-                
+                <img src="imagenes/diagrama1.png" alt="Diagrama de flujo para calcular el área de un triángulo">
             </div>
         </div>
 
@@ -68,7 +68,64 @@ print(f"El área del triángulo es: {area}")
         </div>
 
     </div>
-</article>
+</article> <!-- cierre de ejercicio 1 -->
+<hr>
+<article class="ejercicio-container"> <!-- inicio ejercicio 2 -->
+    <header>
+        <h3>Ejercicio 2: Convertir Temperatura de Celsius a Fahrenheit</h3>
+    </header>
+    
+    <p><strong>Pistas Claves:</strong></p>
+    <ul>
+        <li>Necesitarás pedirle al usuario la temperatura en grados Celsius.</li>
+        <li>Recuerda que la fórmula de conversión es: (Celsius * 9/5) + 32.</li>
+        <li>Asegúrate de convertir la entrada del usuario a un número (puede ser decimal).</li>
+    </ul>
+
+    <div class="solucion-columnas">
+        
+        <div class="columna">
+            <h4>Pseudocódigo</h4>
+            <button class="boton-revelar" onclick="toggleContenido('solucion-pseudo-2', this)">Mostrar</button>
+            <div id="solucion-pseudo-2" class="contenido-oculto">
+                <pre><code>Algoritmo ConvertirCelsiusAFahrenheit
+    Definir celsius, fahrenheit Como Real
+    Escribir 'Introduce la temperatura en grados Celsius: '
+    Leer celsius
+    // 2. Convertir a Fahrenheit
+    fahrenheit <- (celsius * 9/5) + 32
+    // 3. Mostrar el resultado
+    Escribir 'La temperatura en Fahrenheit es: ',fahrenheit
+FinAlgoritmo</code></pre>
+            </div>
+        </div>
+
+        <div class="columna">
+            <h4>Diagrama de Flujo</h4>
+            <button class="boton-revelar" onclick="toggleContenido('solucion-flujo-2', this)">Mostrar</button>
+            <div id="solucion-flujo-2" class="contenido-oculto">
+                <img src="imagenes/diagrama2.png" alt="Diagrama de flujo para convertir Celsius a Fahrenheit">
+            </div>
+        </div>
+
+        <div class="columna">
+            <h4>Código Python</h4>
+            <button class="boton-revelar" onclick="toggleContenido('solucion-python-2', this)">Mostrar</button>
+            <div id="solucion-python-2" class="contenido-oculto">
+                <pre><code class="language-python"># 1. Pedir la temperatura en Celsius al usuario 
+celsius = float(input("Introduce la temperatura en grados Celsius: "))
+
+# 2. Convertir a Fahrenheit
+fahrenheit = (celsius * 9/5) + 32
+
+# 3. Mostrar el resultado
+print(f"La temperatura en Fahrenheit es: {fahrenheit}")
+</code></pre>
+            </div>
+        </div>
+
+    </div>
+</article> <!-- cierre de ejercicio 2 -->
 <hr>
 <script>
     function toggleContenido(id, boton) {
