@@ -114,19 +114,6 @@ with open("datos.json", "r") as archivo:
             
             <hr>
 
-            <h4>✅ Checklist del Nivel 3</h4>
-<fieldset>
-  <legend>Marca los temas que ya dominas:</legend>
-  <label><input type="checkbox"> Comprendo los conceptos básicos de POO: <strong>clase</strong>, <strong>objeto</strong>, <strong>atributos</strong> y <strong>métodos</strong>.</label><br>
-  <label><input type="checkbox"> Sé crear una clase en Python y generar instancias (objetos).</label><br>
-  <label><input type="checkbox"> Puedo usar <code>try/except</code> para manejar errores sin que el programa se detenga.</label><br>
-  <label><input type="checkbox"> Entiendo cómo dividir el código en <strong>módulos</strong> e importarlos con <code>import</code>.</label><br>
-  <label><input type="checkbox"> Sé guardar y leer datos en archivos de texto o <code>JSON</code> con <code>open()</code> y <code>json</code>.</label><br>
-  <label><input type="checkbox"> Reconozco conceptos de POO avanzada como herencia y encapsulación, aunque sea de forma básica.</label><br>
-</fieldset>
-<hr>
-
-
             <article>
                 <h3>Mini-Proyecto de Cierre: Agenda de Contactos con Guardado</h3>
                 <p>Este es el gran proyecto final de los fundamentos. Vas a crear una agenda de contactos completa que combine todo lo que has visto en este nivel:
@@ -144,14 +131,5 @@ with open("datos.json", "r") as archivo:
 
         </section>
     </main>
-
-    <script>
-document.querySelectorAll('input[type="checkbox"]').forEach(chk => {
-  const key = chk.nextSibling.textContent.trim();
-  chk.checked = localStorage.getItem(key) === 'true';
-  chk.addEventListener('change', () => localStorage.setItem(key, chk.checked));
-});
-</script>
-
 </body>
 </html>

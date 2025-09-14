@@ -114,19 +114,6 @@ mi_funcion()
 
             <hr>
 
-            <h4>✅ Checklist del Nivel 2</h4>
-<fieldset>
-  <legend>Marca los temas que ya dominas:</legend>
-  <label><input type="checkbox"> Puedo crear y modificar <code>listas</code> con métodos como <code>append()</code> y <code>remove()</code>.</label><br>
-  <label><input type="checkbox"> Sé acceder a elementos de una lista usando índices.</label><br>
-  <label><input type="checkbox"> Puedo crear y actualizar <code>diccionarios</code> y acceder a sus valores por clave.</label><br>
-  <label><input type="checkbox"> Conozco la diferencia entre listas, tuplas y conjuntos (sets).</label><br>
-  <label><input type="checkbox"> Sé definir y llamar funciones con parámetros y <code>return</code>.</label><br>
-  <label><input type="checkbox"> Entiendo la diferencia entre variables <strong>globales</strong> y <strong>locales</strong> (scope).</label><br>
-</fieldset>
-<hr>
-
-
             <article>
                 <h3>Mini-Proyecto de Cierre: Calculadora de Gastos Personales</h3>
                 <p>Es hora de aplicar estos nuevos conceptos. En este proyecto, crearás una pequeña aplicación para llevar un registro de tus gastos. Usarás listas, diccionarios y funciones para crear un programa estructurado y muy útil.</p>
@@ -138,14 +125,6 @@ mi_funcion()
 
         </section>
     </main>
-
-<script>
-document.querySelectorAll('input[type="checkbox"]').forEach(chk => {
-  const key = chk.nextSibling.textContent.trim();
-  chk.checked = localStorage.getItem(key) === 'true';
-  chk.addEventListener('change', () => localStorage.setItem(key, chk.checked));
-});
-</script>
 
 </body>
 </html>
