@@ -102,6 +102,17 @@ for numero in range(1, 6): # range(1, 6) genera los números 1, 2, 3, 4, 5
             
             <hr>
 
+            <h4>✅ Checklist del Nivel 1</h4>
+<fieldset>
+  <legend>Marca los temas que ya dominas:</legend>
+  <label><input type="checkbox"> Entiendo qué es una variable.</label><br>
+  <label><input type="checkbox"> Sé cómo usar <code>print()</code> e <code>input()</code>.</label><br>
+  <label><input type="checkbox"> Comprendo la lógica de <code>if/else</code>.</label><br>
+  <label><input type="checkbox"> Sé para qué sirve un bucle <code>while</code> y <code>for</code>.</label><br>
+</fieldset>
+<hr>
+
+
             <article>
                 <h3>Mini-Proyecto de Cierre: Piedra, Papel o Tijera</h3>
                 <p>Con lo que acabas de ver, puedes construir tu primer juego completo. Este proyecto usará variables, <code>input()</code>, condicionales y un bucle para crear una experiencia interactiva.</p>
@@ -113,6 +124,15 @@ for numero in range(1, 6): # range(1, 6) genera los números 1, 2, 3, 4, 5
 
         </section>
     </main>
+
+    <script>
+document.querySelectorAll('input[type="checkbox"]').forEach(chk => {
+  const key = chk.nextSibling.textContent.trim();
+  chk.checked = localStorage.getItem(key) === 'true';
+  chk.addEventListener('change', () => localStorage.setItem(key, chk.checked));
+});
+</script>
+
 
 </body>
 </html>
