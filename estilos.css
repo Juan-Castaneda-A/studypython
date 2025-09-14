@@ -1,46 +1,182 @@
-/* Contenedor principal para las columnas */
-.solucion-columnas {
-    display: flex; /* Activa el modo Flexbox */
-    flex-wrap: wrap; /* Permite que las columnas se muevan si no caben */
-    gap: 1rem; /* Espacio entre las columnas */
-    margin-top: 1.5rem;
+/* --- AJUSTES GENERALES Y POSICIONAMIENTO --- */
+header.container h1 {
+    margin-top: 4rem; /* Empuja el título principal hacia abajo */
 }
 
-/* Estilo para cada columna individual */
-.columna {
-    flex: 1; /* Hace que cada columna intente ocupar el mismo espacio */
-    min-width: 280px; /* Ancho mínimo antes de que se rompa la línea */
-    border: 1px solid var(--contrast-border-color);
+
+/* --- ÍNDICE LATERAL CON EFECTO VIDRIO --- */
+#indice-lateral {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 300px;
+    height: 100%;
+    /* Efecto Vidrio (Glassmorphism) */
+    background: rgba(43, 49, 55, 0.8); /* Fondo semitransparente (ajusta el 0.8 si quieres) */
+    backdrop-filter: blur(10px); /* ¡La magia del desenfoque! */
+    -webkit-backdrop-filter: blur(10px); /* Para compatibilidad con Safari */
+    box-shadow: 2px 0 10px rgba(0,0,0,0.2);
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 1000;
     padding: 1rem;
+    overflow-y: auto;
+}
+#indice-lateral.visible {
+    transform: translateX(0);
+}
+#lista-indice {
+    list-style: none;
+    padding: 0;
+}
+#indice-lateral ul#lista-indice {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;         /* Lo convertimos en un contenedor flexible */
+    flex-direction: column;  /* ¡La línea clave! Obliga a los hijos a apilarse verticalmente */
+    gap: 0.5rem;             /* Espacio entre cada enlace */
+}
+/* Asegura que cada item de la lista sea una fila vertical */
+#lista-indice li {
+    display: block; /* Obliga a cada elemento a ocupar su propia línea */
+    width: 100%;    /* Asegura que ocupe todo el ancho del panel */
+    margin-bottom: 0.75rem; /* Aumenta un poco el espacio vertical */
+}
+#lista-indice a {
+    display: block; /* Hacemos que el área de clic ocupe todo el ancho */
+    padding: 0.75rem;
     border-radius: var(--border-radius);
+    text-decoration: none;
+    transition: background-color 0.2s;
+}
+#lista-indice a:hover {
+    background-color: var(--card-border-color); /* Un color sutil al pasar el mouse */
+}
+#boton-cerrar-indice {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 40px;
+    height: 40px;
 }
 
-/* Estilo para el contenido que estará oculto por defecto */
-/* .contenido-oculto {
-    display: none; 
-    margin-top: 1rem;
+/* --- DISEÑO MEJORADO DEL ACORDEÓN DE EJERCICIOS --- */
+.ejercicio-acordeon {
+    background-color: var(--card-background-color); /* Fondo de tarjeta */
+    border: 1px solid var(--contrast-border-color);
+    border-radius: var(--border-radius);
+    margin-bottom: 1.5rem; /* Mayor separación entre ejercicios */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Sombra suave */
+    transition: box-shadow 0.2s;
+}
+.ejercicio-acordeon:hover {
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15); /* Sombra más pronunciada al pasar el mouse */
+}
+.ejercicio-acordeon summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    cursor: pointer;
+}
+.ejercicio-acordeon summary::marker, .ejercicio-acordeon summary::-webkit-details-marker {
+    display: none;
+}
+.contenido-ejercicio {
+    padding: 0 1rem 1rem 1rem;
     border-top: 1px solid var(--contrast-border-color);
-    padding-top: 1rem;
-} */
+}
+.info-ejercicio { display: flex; align-items: center; gap: 1rem; }
 
-/* Pequeño ajuste para el botón */
-.boton-revelar {
+/* --- CÓDIGO INTERNO (sin cambios) --- */
+.solucion-columnas { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1.5rem; }
+.columna { flex: 1; min-width: 280px; border: 1px solid var(--contrast-border-color); padding: 1rem; border-radius: var(--border-radius); }
+.contenido-oculto { max-height: 0; overflow: hidden; transition: max-height 0.4s ease-out; padding-top: 0; }
+.boton-revelar { width: 100%; margin-bottom: 1rem; }
+pre { overflow-x: auto; }
+.dificultad { padding: 0.2rem 0.6rem; border-radius: 1rem; font-size: 0.8em; font-weight: bold; }
+.facil { background-color: #28a745; color: white; }
+.intermedio { background-color: #ffc107; color: black; }
+.dificil { background-color: #dc3545; color: white; }
+
+/* =================================================================== */
+/* REEMPLAZA TODO TU CSS RELACIONADO CON LA HAMBURGUESA          */
+/* Y EL ÍNDICE CON ESTE BLOQUE COMPLETO                   */
+/* =================================================================== */
+
+/* --- BOTÓN DE HAMBURGUESA Y ANIMACIÓN --- */
+#boton-hamburguesa {
+    position: fixed;
+    top: 1.5rem;
+    left: 1.5rem;
+    z-index: 1001; /* Siempre por encima de todo */
+    width: 50px;
+    height: 50px;
+    
+    /* Le damos un color de fondo explícito y oscuro */
+    background: #2d343b; 
+    
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Borde sutil */
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    cursor: pointer;
+
+    /* Acomoda las líneas en el centro */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 10px;
+
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Estilo base de cada línea de la hamburguesa */
+.linea {
+    display: block;
     width: 100%;
+    height: 3px;
+    
+    /* Le damos un color blanco explícito para asegurar que se vea */
+    background-color: white; 
+    
+    border-radius: 3px;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    user-select: none; 
 }
 
-/* Estilo para el contenido oculto (con preparación para la animación) */
-.contenido-oculto {
-    max-height: 0; /* Ocultamos el contenido colapsando su altura */
-    overflow: hidden; /* Esconde lo que se salga del max-height */
-    transition: max-height 0.4s ease-out; /* La animación suave */
-    margin-top: 1rem;
-    border-top: 1px solid var(--contrast-border-color);
-    padding-top: 0;
+/* --- ÍNDICE LATERAL DESPLEGABLE (sin cambios, pero lo incluimos para que todo esté junto) --- */
+#indice-lateral {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 300px;
+    height: 100%;
+    background: rgba(43, 49, 55, 0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 2px 0 10px rgba(0,0,0,0.2);
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 1000;
+    padding: 1rem;
+    padding-top: 5rem;
+    overflow-y: auto;
 }
 
-/* Hace que las imágenes dentro de las columnas sean responsivas */
-.columna img {
-    max-width: 100%;
-    height: auto;
-    display: block; /* Ayuda a evitar espacios extra debajo de la imagen */
+/* --- LÓGICA DE LA CLASE .menu-abierto (sin cambios) --- */
+body.menu-abierto #indice-lateral {
+    transform: translateX(0);
+}
+body.menu-abierto #boton-hamburguesa {
+    transform: translateX(240px);
+}
+body.menu-abierto .linea1 {
+    transform: translateY(10px) rotate(45deg);
+}
+body.menu-abierto .linea2 {
+    opacity: 0;
+}
+body.menu-abierto .linea3 {
+    transform: translateY(-10px) rotate(-45deg);
 }

@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Taller de Ejercicios</title>
+
+  <!-- PicoCSS base -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+  <!-- highlight.js para código -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+  <!-- Estilos propios -->
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+  <!-- Botón menú lateral -->
+  <button id="boton-hamburguesa" aria-label="Abrir o cerrar menú">
+    <span class="linea linea1"></span>
+    <span class="linea linea2"></span>
+    <span class="linea linea3"></span>
+</button>
+  <!-- Índice lateral -->
+  <nav id="indice-lateral" role="navigation" aria-label="Índice de ejercicios">
+    <h4>Índice de Ejercicios</h4>
+    <ul id="lista-indice"></ul>
+  </nav>
+
+  <main class="container">
+    <header>
+      <h1>Taller de Ejercicios de Lógica</h1>
+      <p>Haz clic en un ejercicio para expandirlo. Tu progreso se guardará automáticamente.</p>
+    </header>
+
+    <!-- Ejercicios -->
+    <details class="ejercicio-acordeon" id="ejercicio-1">
+      <summary>
+        <span class="titulo-ejercicio"><strong>Ejercicio 1:</strong> Área de un Triángulo</span>
+        <span class="info-ejercicio">
+          <span class="dificultad facil">Fácil</span>
+          <label><input type="checkbox" class="checklist"> Hecho</label>
+        </span>
+      </summary>
+      <div class="contenido-ejercicio">
+        <p><strong>Pistas Claves:</strong></p>
+        <ul>
+        <li>Necesitarás pedirle al usuario dos datos: la base y la altura.</li>
+        <li>Recuerda que la fórmula es: (base * altura) / 2.</li>
+        <li>Asegúrate de convertir las entradas del usuario a números (pueden ser decimales).</li>
+    </ul>
+        <div class="solucion-columnas">
+            <div class="columna">
+            <h4>Pseudocódigo</h4>
+            <button class="boton-revelar" onclick="toggleContenido('solucion-pseudo-1', this)">Mostrar</button>
+            <div id="solucion-pseudo-1" class="contenido-oculto">
+                <pre><code>Algoritmo AreaTriangulo
+	Definir base,altura,area Como Real
+	Escribir 'Introduce la base del triángulo: '
+	Leer base
+	Escribir 'Introduce la altura del triángulo: '
+	Leer altura
+	// 2. Calcular el área
+	area <- (base*altura)/2
+	// 3. Mostrar el resultado
+	Escribir 'El área del triángulo es: ',area
+FinAlgoritmo</code></pre>
+            </div>
+        </div>
+
+        <div class="columna">
+            <h4>Diagrama de Flujo</h4>
+            <button class="boton-revelar" onclick="toggleContenido('solucion-flujo-1', this)">Mostrar</button>
+            <div id="solucion-flujo-1" class="contenido-oculto">
+                <img src="imagenes/diagrama1.png" alt="Diagrama de flujo para calcular el área de un triángulo">
+            </div>
+        </div>
+
+        <div class="columna">
+            <h4>Código Python</h4>
+            <button class="boton-revelar" onclick="toggleContenido('solucion-python-1', this)">Mostrar</button>
+            <div id="solucion-python-1" class="contenido-oculto">
+                <pre><code class="language-python"># 1. Pedir los datos al usuario
+base = float(input("Introduce la base del triángulo: "))
+altura = float(input("Introduce la altura del triángulo: "))
+
+# 2. Calcular el área
+area = (base * altura) / 2
+
+# 3. Mostrar el resultado
+print(f"El área del triángulo es: {area}")
+</code></pre>
+            </div>
+        </div>
+        </div>
+      </div>
+    </details>
+    <!-- SEPARADOR -->
+    <details class="ejercicio-acordeon" id="ejercicio-2">
+      <summary>
+        <span class="titulo-ejercicio"><strong>Ejercicio 2:</strong> Convertir Temperatura de Celsius a Fahrenheit</span>
+        <span class="info-ejercicio">
+          <span class="dificultad facil">Fácil</span>
+          <label><input type="checkbox" class="checklist"> Hecho</label>
+        </span>
+      </summary>
+      <div class="contenido-ejercicio">
+        <p><strong>Pistas Claves:</strong></p>
+        <ul>
+        <li>Necesitarás pedirle al usuario la temperatura en grados Celsius.</li>
+        <li>Recuerda que la fórmula de conversión es: (Celsius * 9/5) + 32.</li>
+        <li>Asegúrate de convertir la entrada del usuario a un número (puede ser decimal).</li>
+    </ul>
+        <div class="solucion-columnas">
+            <div class="columna">
+            <h4>Pseudocódigo</h4>
+            <button class="boton-revelar" onclick="toggleContenido('solucion-pseudo-2', this)">Mostrar</button>
+            <div id="solucion-pseudo-2" class="contenido-oculto">
+                <pre><code>Algoritmo ConvertirCelsiusAFahrenheit
+    Definir celsius, fahrenheit Como Real
+    Escribir 'Introduce la temperatura en grados Celsius: '
+    Leer celsius
+    // 2. Convertir a Fahrenheit
+    fahrenheit <- (celsius * 9/5) + 32
+    // 3. Mostrar el resultado
+    Escribir 'La temperatura en Fahrenheit es: ',fahrenheit
+FinAlgoritmo</code></pre>
+            </div>
+        </div>
+
+        <div class="columna">
+            <h4>Diagrama de Flujo</h4>
+            <button class="boton-revelar" onclick="toggleContenido('solucion-flujo-2', this)">Mostrar</button>
+            <div id="solucion-flujo-2" class="contenido-oculto">
+                <img src="imagenes/diagrama2.png" alt="Diagrama de flujo para convertir Celsius a Fahrenheit">
+            </div>
+        </div>
+
+        <div class="columna">
+            <h4>Código Python</h4>
+            <button class="boton-revelar" onclick="toggleContenido('solucion-python-2', this)">Mostrar</button>
+            <div id="solucion-python-2" class="contenido-oculto">
+                <pre><code class="language-python"># 1. Pedir la temperatura en Celsius al usuario 
+celsius = float(input("Introduce la temperatura en grados Celsius: "))
+
+# 2. Convertir a Fahrenheit
+fahrenheit = (celsius * 9/5) + 32
+
+# 3. Mostrar el resultado
+print(f"La temperatura en Fahrenheit es: {fahrenheit}")
+</code></pre>
+            </div>
+        </div>
+        </div>
+      </div>
+    </details> 
+    <!-- SEPARADOR -->
+    <details class="ejercicio-acordeon" id="ejercicio-3">
+      <summary>
+        <span class="titulo-ejercicio"><strong>Ejercicio 3:</strong> Números Primos</span>
+        <span class="info-ejercicio">
+          <span class="dificultad dificil">Difícil</span>
+          <label><input type="checkbox" class="checklist"> Hecho</label>
+        </span>
+      </summary>
+      <div class="contenido-ejercicio">
+        <p><strong>Pistas Claves:</strong> ...</p>
+        <div class="solucion-columnas">...</div>
+      </div>
+    </details>
+    <!-- SEPARADOR -->
+  </main>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>
+document.addEventListener('DOMContentLoaded', () => {
+    hljs.highlightAll();
+
+    // --- LÓGICA DEL ÍNDICE DESPLEGABLE (SIMPLIFICADA) ---
+    const botonHamburguesa = document.getElementById('boton-hamburguesa');
+    const indiceLateral = document.getElementById('indice-lateral');
+    const body = document.body;
+    
+    // El mismo botón ahora abre y cierra el menú
+    botonHamburguesa.addEventListener('click', () => {
+        body.classList.toggle('menu-abierto');
+    });
+
+    // --- GENERAR ÍNDICE DINÁMICAMENTE ---
+    const listaIndice = document.getElementById('lista-indice');
+    const ejercicios = document.querySelectorAll('.ejercicio-acordeon');
+
+    ejercicios.forEach(ejercicio => {
+        const titulo = ejercicio.querySelector('.titulo-ejercicio').textContent.trim();
+        const id = ejercicio.id;
+        const link = document.createElement('a');
+        link.href = `#${id}`;
+        link.textContent = titulo;
+        
+        link.addEventListener('click', () => {
+            const ejercicioTarget = document.getElementById(id);
+            if (ejercicioTarget) ejercicioTarget.open = true;
+            // Cerramos el panel lateral al hacer clic en un enlace
+            body.classList.remove('menu-abierto');
+        });
+        
+        const listItem = document.createElement('li');
+        listItem.appendChild(link);
+        listaIndice.appendChild(listItem);
+    });
+
+    // --- LÓGICA DEL ACORDEÓN --- (sin cambios)
+    ejercicios.forEach(ejercicio => {
+        ejercicio.addEventListener('toggle', (evento) => {
+            if (evento.currentTarget.open) {
+                ejercicios.forEach(otro => {
+                    if (otro !== evento.currentTarget) otro.open = false;
+                });
+            }
+        });
+    });
+
+    // --- LÓGICA DEL CHECKLIST --- (sin cambios)
+    const checklists = document.querySelectorAll('.checklist');
+    function guardarProgreso() {
+        const progreso = {};
+        checklists.forEach(check => {
+            const id = check.closest('.ejercicio-acordeon').id;
+            progreso[id] = check.checked;
+        });
+        localStorage.setItem('progresoTaller', JSON.stringify(progreso));
+    }
+    function cargarProgreso() {
+        const progresoGuardado = JSON.parse(localStorage.getItem('progresoTaller'));
+        if (progresoGuardado) {
+            checklists.forEach(check => {
+                const id = check.closest('.ejercicio-acordeon').id;
+                if (progresoGuardado[id]) check.checked = true;
+            });
+        }
+    }
+    checklists.forEach(check => check.addEventListener('change', guardarProgreso));
+    cargarProgreso();
+});
+
+// --- LÓGICA DE BOTONES INTERNOS --- (sin cambios)
+function toggleContenido(id, boton) {
+    const elemento = document.getElementById(id);
+    if (elemento.style.maxHeight) {
+        elemento.style.maxHeight = null;
+        boton.textContent = 'Mostrar';
+    } else {
+        elemento.style.maxHeight = elemento.scrollHeight + "px";
+        boton.textContent = 'Ocultar';
+    }
+}
+</script>
+</body>
+</html>
