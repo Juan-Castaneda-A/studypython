@@ -6,7 +6,8 @@
     <title>Proyecto 1: Piedra, Papel o Tijera - Aprendiendo Python</title>
     
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css" />
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -50,20 +51,20 @@
 
             <h3>Paso 2: Importar una Herramienta Mágica (`random`)</h3>
             <p>Para que la computadora elija al azar, necesitamos una "caja de herramientas" que ya viene con Python. Esta se llama <code>random</code>. La primera línea de nuestro código será para importarla y tenerla lista para usar. Este proceso de importar lo usarás demasiado en proyectos intermedios o avanzados, ya que facilita mucho las cosas.</p>
-            <pre><code>import random  # Importamos la librería para generar aleatoriedad</code></pre>
+            <pre><code class="language-python">import random  # Importamos la librería para generar aleatoriedad</code></pre>
 
             <hr>
 
             <h3>Paso 3: El Bucle Principal y la Jugada del Usuario</h3>
             <p>Usaremos un bucle <code>while True</code>. Esto crea un ciclo infinito que solo se detendrá cuando se lo digas explícitamente. Dentro del bucle, pedirás la jugada al usuario con <code>input()</code>. Usarás <code>.lower()</code> para convertir su respuesta a minúsculas y evitar errores si escribe "Piedra" en lugar de "piedra".</p>
-            <pre><code>while True:
+            <pre><code class="language-python">while True:
     jugada_usuario = input("Elige piedra, papel o tijera: ").lower()</code></pre>
 
             <hr>
 
             <h3>Paso 4: La Jugada de la Computadora</h3>
             <p>Ahora, le toca a la computadora. Crearás una lista con las opciones posibles y usarás <code>random.choice()</code> para que elija una de ellas (aquí es donde hacemos uso de la librería que importamos anteriormente).</p>
-            <pre><code>    opciones = ["piedra", "papel", "tijera"]
+            <pre><code class="language-python">    opciones = ["piedra", "papel", "tijera"]
     jugada_computadora = random.choice(opciones)
     print(f"La computadora eligió: {jugada_computadora}")</code></pre>
 
@@ -71,7 +72,7 @@
 
             <h3>Paso 5: La Lógica de las Comparaciones (`if/elif/else`)</h3>
             <p>Esta es la parte central del juego. En el código haremos que se comparen las jugadas para determinar el resultado. Primero, el caso más fácil: el empate. Luego, todos los casos en los que gana el usuario. Si no es empate y tampoco gana el usuario, entonces, por descarte, ¡pierde!</p>
-            <pre><code>    if jugada_usuario == jugada_computadora:
+            <pre><code class="language-python">    if jugada_usuario == jugada_computadora:
         print("Es empate!")
     elif (jugada_usuario == "piedra" and jugada_computadora == "tijera") or \
          (jugada_usuario == "tijera" and jugada_computadora == "papel") or \
@@ -84,7 +85,7 @@
 
             <h3>Paso 6: ¿Otra Ronda?</h3>
             <p>Al final de cada ronda, le preguntaremos al usuario si quiere continuar. Si su respuesta no es "si", usaremos la palabra clave <code>break</code> para romper el bucle <code>while True</code> y terminar el programa.</p>
-            <pre><code>    jugar_de_nuevo = input("¿Quieres jugar otra vez? (si/no): ").lower()
+            <pre><code class="language-python">    jugar_de_nuevo = input("¿Quieres jugar otra vez? (si/no): ").lower()
     if jugar_de_nuevo != "si":
         break
 
@@ -95,7 +96,7 @@ print("Gracias por jugar :)") # Este mensaje solo aparece al salir del bucle
 
             <h3>El Código Completo</h3>
             <p>Aquí tienes todas las piezas juntas. ¡Pruébalo en Replit y mira cómo funciona!</p>
-            <pre><code>import random
+            <pre><code class="language-python">import random
 
 print("¡Bienvenida al juego de Piedra, Papel o Tijera!")
 
@@ -141,6 +142,7 @@ print("Gracias por jugar :)")
         </article>
     </main>
 
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
 </body>
 </html>

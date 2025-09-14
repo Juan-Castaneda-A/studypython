@@ -6,7 +6,8 @@
     <title>Nivel 3: Aplicaciones Robustas - Aprendiendo Python</title>
     
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css" />
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+
     <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
@@ -42,7 +43,7 @@
                 <li>Los <strong>Atributos</strong> son las características del objeto (su color, marca, modelo).</li>
                 <li>Los <strong>Métodos</strong> son las acciones que el objeto puede hacer (<code>acelerar()</code>, <code>frenar()</code>).</li>
             </ul>
-            <pre><code># Este es el plano (la Clase)
+            <pre><code class="language-python"># Este es el plano (la Clase)
 class Mascota:
     # El método __init__ es el "constructor", se ejecuta al crear un objeto
     def __init__(self, nombre, tipo):
@@ -69,7 +70,7 @@ mascota2.presentar() # Muestra: Hola, soy un Gato y me llamo Misi.
 
             <h3>Manejo de Errores (`try` / `except`): La Red de Seguridad</h3>
             <p>Qué pasa si tu programa pide un número y el usuario escribe texto? El programa se "rompe"! Para evitarlo, usarás <code>try...except</code>. Es como decirle a Python: "<strong>Intenta</strong> hacer esto, y si ocurre un error, en lugar de romperte, <strong>haz esto otro</strong>".</p>
-            <pre><code>try:
+            <pre><code class="language-python">try:
     edad = int(input("Introduce tu edad: "))
     print(f"Tu edad es {edad}.")
 except ValueError:
@@ -82,11 +83,11 @@ except ValueError:
             <h3>Manejo de Módulos:</h3>
             <p>Cuando un programa crece, no queremos tener todo el código en un solo archivo. Podemos dividirlo en varios archivos <code>.py</code> (llamados <strong>módulos</strong>) y luego importarlos donde los necesitemos. Esto mantiene el proyecto ordenado.</p>
             <p>Imagina que tienes un archivo <code>operaciones.py</code>:</p>
-            <pre><code># Archivo: operaciones.py
+            <pre><code class="language-python"># Archivo: operaciones.py
 def sumar(a, b):
     return a + b</code></pre>
             <p>Y en tu archivo principal <code>main.py</code>, puedes usarlo así:</p>
-            <pre><code># Archivo: main.py
+            <pre><code class="language-python"># Archivo: main.py
 import operaciones
 
 resultado = operaciones.sumar(5, 3)
@@ -96,7 +97,7 @@ print(resultado) # Muestra: 8</code></pre>
 
             <h3>Archivos (`.txt`, `.json`): Guardando Datos Permanentemente</h3>
             <p>Hasta ahora, toda la información de nuestros programas se pierde cuando los cerramos. Para guardarla, necesitamos escribirla en archivos. El formato <strong>JSON</strong> es perfecto para esto, porque funciona de manera muy natural con los diccionarios y listas de Python.</p>
-            <pre><code>import json # Necesitas importar el módulo json
+            <pre><code class="language-python">import json # Necesitas importar el módulo json
 
 # diccionario de datos
 datos_usuario = {"nombre": "Ana", "puntos": 150}
@@ -152,6 +153,7 @@ document.querySelectorAll('input[type="checkbox"]').forEach(chk => {
   chk.addEventListener('change', () => localStorage.setItem(key, chk.checked));
 });
 </script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
 </body>
 </html>

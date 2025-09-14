@@ -6,7 +6,8 @@
     <title>Nivel 2: Organización y Estructura - Aprendiendo Python</title>
     
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css" />
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+
     <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
@@ -38,7 +39,7 @@
             
             <h4>Listas `[]`</h4>
             <p>Una lista es una colección <strong>ordenada</strong> de elementos. Imagina que es como una lista de compras o los vagones de un tren. Puedes añadir, quitar y modificar sus elementos.</p>
-            <pre><code># Una lista de compras
+            <pre><code class="language-python"># Una lista de compras
 compras = ["Manzanas", "Leche", "Pan"]
 
 # Acceder a un elemento (la numeración empieza en 0)
@@ -57,7 +58,7 @@ print(compras) # Muestra: ['Manzanas', 'Pan', 'Huevos']</code></pre>
 
             <h4>Diccionarios `{}`</h4>
             <p>Un diccionario es una colección de pares <strong>clave-valor</strong>, no ordenada. Imagina una agenda de contactos: la "clave" es el nombre de la persona y el "valor" es su número de teléfono, literalmente como un diccionario. Son extremadamente útiles para relacionar datos.</p>
-            <pre><code># Un diccionario para guardar información de una persona
+            <pre><code class="language-python"># Un diccionario para guardar información de una persona
 persona = {
     "nombre": "Ana",
     "edad": 25,
@@ -83,7 +84,7 @@ print(persona) # Muestra el diccionario con la nueva información
             <h3>Funciones (`def`): Creando Tus Propias Herramientas</h3>
             <p>Una función es un bloque de código reutilizable al que le ponemos un nombre. Es como crear una "receta" o un "mini-programa" que podemos llamar cuando queramos. Esto evita repetir código y hace nuestros programas mucho más organizados.</p>
             <p>Las funciones pueden recibir "ingredientes" (llamados <strong>parámetros</strong>) y devolver un resultado (con <code>return</code>).</p>
-            <pre><code># Definimos una función que saluda a alguien
+            <pre><code class="language-python"># Definimos una función que saluda a alguien
 def saludar(nombre):
     mensaje = f"Hola {nombre}, qué bueno verte!"
     return mensaje
@@ -101,7 +102,7 @@ print(saludo_para_pablo) # Muestra: Hola Pablo, qué bueno verte!
             <h3>Alcance de Variables (Scope)</h3>
             <p>Este es un concepto importante. Las variables que creas <strong>dentro</strong> de una función (locales) solo existen y pueden ser usadas dentro de esa función. Las variables creadas <strong>fuera</strong> de todas las funciones (globales) pueden ser accedidas desde cualquier parte.</p>
             <p>Imagina que tu programa es una casa: las funciones son las habitaciones. Una variable creada en una habitación (local) solo se puede usar ahí. Una variable en el pasillo principal (global) se puede ver desde todas las habitaciones.</p>
-             <pre><code>variable_global = "Soy visible en todas partes"
+             <pre><code class="language-python">variable_global = "Soy visible en todas partes"
 
 def mi_funcion():
     variable_local = "Solo existo dentro de esta función"
@@ -146,6 +147,9 @@ document.querySelectorAll('input[type="checkbox"]').forEach(chk => {
   chk.addEventListener('change', () => localStorage.setItem(key, chk.checked));
 });
 </script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
 
 </body>
 </html>

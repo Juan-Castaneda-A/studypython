@@ -6,7 +6,8 @@
     <title>Proyecto 2: Calculadora de Gastos - Aprendiendo Python</title>
     
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css" />
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -54,7 +55,7 @@ gastos = []</code></pre>
 
             <h4>Función para Agregar un Gasto</h4>
             <p>Esta función pedirá al usuario el concepto y el monto, creará un diccionario con esa información y lo añadirá a la lista principal.</p>
-            <pre><code>def agregar_gasto(gastos_lista):
+            <pre><code class="language-python">def agregar_gasto(gastos_lista):
     concepto = input("Introduce el concepto del gasto: ")
     monto = float(input("Introduce el monto: ")) # Usarás float para permitir decimales
     
@@ -177,6 +178,7 @@ while True:
             </footer>
         </article>
     </main>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
 </body>
 </html>

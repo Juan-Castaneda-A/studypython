@@ -6,7 +6,8 @@
     <title>Nivel 1: Los Cimientos - Aprendiendo Python</title>
     
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css" />
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+
     <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
@@ -34,9 +35,9 @@
 
             <h3>"Hola Mundo" y los Comentarios (`#`)</h3>
             <p>El primer paso en cualquier lenguaje es mostrar un mensaje. Usa la función <code>print()</code> para decirle a Python que escriba algo en la consola.</p>
-            <pre><code>print("Hola Mundo!")</code></pre>
+            <pre><code class="language-python">print("Hola Mundo!")</code></pre>
             <p>También puedes dejar notas en tu código que Python ignorará. Estas se llaman <strong>comentarios</strong> y empiezan con el símbolo <code>#</code> y sonn muy útiles para recordar qué hace cada parte de nuestro programa.</p>
-            <pre><code># Esta línea imprime un saludo. Python la ignora.
+            <pre><code class="language-python"># Esta línea imprime un saludo. Python la ignora.
 print("Esto sí se mostrará.")</code></pre>
 
             <hr>
@@ -50,7 +51,7 @@ print("Esto sí se mostrará.")</code></pre>
                 <li><strong>Boolean (bool):</strong> Solo puede ser <code>True</code> o <code>False</code>. Ej: <code>es_estudiante = True</code></li>
             </ul>
             <p>Para que tu programa sea interactivo, necesitas pedirle información al usuario. Para eso usas <code>input()</code>. Importante! <code>input()</code> siempre guarda la información como texto (string), así que si necesitas un número, debes convertirlo.</p>
-            <pre><code>nombre_usuario = input("Por favor, dime tu nombre: ")
+            <pre><code class="language-python">nombre_usuario = input("Por favor, dime tu nombre: ")
 print(f"¡Hola, {nombre_usuario}!")
 
 # Si pedimos un número, hay que convertirlo con int() o float()
@@ -71,7 +72,7 @@ print(f"En 10 años tendrás {edad_numero + 10} años.")</code></pre>
 
             <h3>Condicionales: La Toma de Decisiones (`if`, `elif`, `else`)</h3>
             <p>Esto es el equivalente al rombo en un diagrama de flujo. Permite que tu programa elija un camino dependiendo de si una condición es verdadera o falsa. <strong>La indentación (el espacio a la izquierda) es obligatoria</strong> y le dice a Python qué código pertenece a cada camino.</p>
-            <pre><code>edad = 19
+            <pre><code class="language-python">edad = 19
 
 if edad < 18:
     print("Eres menor de edad.") # Este bloque solo se ejecuta si la edad es menor a 18
@@ -86,7 +87,7 @@ else:
             <p>Los bucles sirven para repetir un bloque de código varias veces sin tener que reescribirlo.</p>
             <h4>Bucle `while`</h4>
             <p>Repite el código <strong>mientras</strong> una condición sea verdadera. Es perfecto para cuando no sabemos cuántas veces necesitamos repetir algo.</p>
-            <pre><code># Adivina el número secreto
+            <pre><code class="language-python"># Adivina el número secreto
 numero_secreto = 7
 adivinanza = 0 # Inicializamos la variable
 
@@ -96,7 +97,7 @@ while adivinanza != numero_secreto:
 print("¡Felicidades! ¡Lo adivinaste!")</code></pre>
             <h4>Bucle `for`</h4>
             <p>Repite el código un número específico de veces. Es ideal para recorrer listas o para contar.</p>
-            <pre><code># Imprime los números del 1 al 5
+            <pre><code class="language-python"># Imprime los números del 1 al 5
 for numero in range(1, 6): # range(1, 6) genera los números 1, 2, 3, 4, 5
     print(numero)</code></pre>
             
@@ -133,6 +134,8 @@ document.querySelectorAll('input[type="checkbox"]').forEach(chk => {
 });
 </script>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
 
 </body>
 </html>
