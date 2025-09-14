@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto 2: Calculadora de Gastos - Aprendiendo Python</title>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css" />
+    
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header class="container">
+        <hgroup>
+            <h1>🐍 Aprendiendo Python</h1>
+            <h2>Proyecto del Nivel 2</h2>
+        </hgroup>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="nivel0.html">Nivel 0</a></li>
+                <li><a href="nivel1.html">Nivel 1</a></li>
+                <li><a href="nivel2.html" class="secondary" aria-current="page">Volver al Nivel 2</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <article>
+            <header>
+                <h2>Mini-Proyecto: Calculadora de Gastos Personales 💸</h2>
+                <p>En este proyecto darás un gran salto en la organización de tu código. Usarás <strong>listas</strong>, <strong>diccionarios</strong> y <strong>funciones</strong> para crear una aplicación de consola que te permita registrar y revisar nuestros gastos.</p>
+            </header>
+            
+            <hr>
+
+            <h3>Paso 1: La Planificación y la Estructura de Datos</h3>
+            <p>Tu programa tendrá un menú principal que se repetirá hasta que el usuario decida salir. Las acciones principales serán:</p>
+            <ol>
+                <li>Agregar un nuevo gasto.</li>
+                <li>Ver todos los gastos registrados.</li>
+                <li>Calcular el gasto total.</li>
+                <li>Salir del programa.</li>
+            </ol>
+            <p>¿Cómo guardarás los gastos? La mejor forma es usar una <strong>lista de diccionarios</strong>. La lista será el contenedor de todos los gastos, y cada gasto individual será un diccionario con su concepto y su monto.</p>
+            <pre><code># Esta será tu base de datos principal. Empezará vacía.
+gastos = []</code></pre>
+
+            <hr>
+
+            <h3>Paso 2: Creando Tus Herramientas (Funciones)</h3>
+            <p>Para mantener el código limpio, crearás una función para cada una de las acciones principales. Esto hará que tu programa sea mucho más fácil de leer y de modificar en el futuro.</p>
+
+            <h4>Función para Agregar un Gasto</h4>
+            <p>Esta función pedirá al usuario el concepto y el monto, creará un diccionario con esa información y lo añadirá a la lista principal.</p>
+            <pre><code>def agregar_gasto(gastos_lista):
+    concepto = input("Introduce el concepto del gasto: ")
+    monto = float(input("Introduce el monto: ")) # Usarás float para permitir decimales
+    
+    nuevo_gasto = {"concepto": concepto, "monto": monto}
+    gastos_lista.append(nuevo_gasto)
+    print("¡Gasto agregado con éxito!")</code></pre>
+
+            <h4>Función para Ver los Gastos</h4>
+            <p>Esta función recorrerá la lista de gastos y mostrará cada uno de forma ordenada. También verificará si la lista está vacía.</p>
+            <pre><code>def ver_gastos(gastos_lista):
+    if not gastos_lista:
+        print("No hay gastos registrados.")
+        return
+
+    print("\n--- Lista de Gastos ---")
+    for gasto in gastos_lista:
+        print(f"- {gasto['concepto']}: ${gasto['monto']:.2f}") # .2f formatea hasta 2 decimales
+    print("----------------------")</code></pre>
+            
+            <h4>Función para Calcular el Total</h4>
+            <p>Esta función sumará los montos de todos los diccionarios en la lista y mostrará el total.</p>
+            <pre><code>def calcular_total(gastos_lista):
+    total = 0
+    for gasto in gastos_lista:
+        total += gasto["monto"] # Sumamos el valor de la clave 'monto'
+    
+    print(f"El gasto total es: ${total:.2f}")</code></pre>
+            
+            <hr>
+            
+            <h3>Paso 3: El Menú Principal (El Bucle `while`)</h3>
+            <p>Ahora crearás el corazón del programa: un bucle `while` que mostrará el menú, pedirá una opción al usuario y llamará a la función correspondiente.</p>
+            <pre><code>while True:
+    print("\nMenú de Gastos Personales")
+    print("1. Agregar un gasto")
+    print("2. Ver todos los gastos")
+    print("3. Calcular gasto total")
+    print("4. Salir")
+    
+    opcion = input("Elige una opción: ")
+    
+    if opcion == "1":
+        agregar_gasto(gastos)
+    elif opcion == "2":
+        ver_gastos(gastos)
+    elif opcion == "3":
+        calcular_total(gastos)
+    elif opcion == "4":
+        print("¡Adiós!")
+        break
+    else:
+        print("Opción no válida. Por favor, intenta de nuevo.")
+</code></pre>
+
+            <hr>
+            
+            <h3>El Código Completo</h3>
+            <p>Uniendo todas las piezas, tu programa se ve así:</p>
+            <pre><code># --- Calculadora de Gastos Personales ---
+
+# Base de datos (una lista vacía al inicio)
+gastos = []
+
+# --- Funciones ---
+def agregar_gasto(gastos_lista):
+    concepto = input("Introduce el concepto del gasto: ")
+    monto = float(input("Introduce el monto: "))
+    
+    nuevo_gasto = {"concepto": concepto, "monto": monto}
+    gastos_lista.append(nuevo_gasto)
+    print("¡Gasto agregado con éxito!")
+
+def ver_gastos(gastos_lista):
+    if not gastos_lista:
+        print("No hay gastos registrados.")
+        return
+
+    print("\n--- Lista de Gastos ---")
+    for gasto in gastos_lista:
+        print(f"- {gasto['concepto']}: ${gasto['monto']:.2f}")
+    print("----------------------")
+
+def calcular_total(gastos_lista):
+    total = 0
+    for gasto in gastos_lista:
+        total += gasto["monto"]
+    
+    print(f"El gasto total es: ${total:.2f}")
+
+# --- Bucle Principal (Menú) ---
+while True:
+    print("\nMenú de Gastos Personales")
+    print("1. Agregar un gasto")
+    print("2. Ver todos los gastos")
+    print("3. Calcular gasto total")
+    print("4. Salir")
+    
+    opcion = input("Elige una opción: ")
+    
+    if opcion == "1":
+        agregar_gasto(gastos)
+    elif opcion == "2":
+        ver_gastos(gastos)
+    elif opcion == "3":
+        calcular_total(gastos)
+    elif opcion == "4":
+        print("¡Adiós!")
+        break
+    else:
+        print("Opción no válida. Por favor, intenta de nuevo.")
+</code></pre>
+            
+            <hr>
+
+            <footer>
+                <h3>🏆 Reto Opcional: Añade más Categorías!</h3>
+                <p>Quieres llevarlo al siguiente nivel? Modifica el programa para que cada gasto tenga también una "categoría" (ej: "Comida", "Transporte", "Ocio"). Luego, crea una nueva función en el menú que permita ver el total de gastos <strong>por categoría</strong>.</p>
+                <p>Has construido tu primera aplicación estructurada! Ahora estás lista para aprender a modelar problemas más complejos y a hacer tus programas a prueba de errores.</p>
+                <a href="nivel3.html" role="button">Sigue con el nivel 3</a>
+            </footer>
+        </article>
+    </main>
+
+</body>
+</html>

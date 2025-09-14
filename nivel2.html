@@ -13,8 +13,8 @@
 
     <header class="container">
         <hgroup>
-            <h1>🐍 Aprendiendo Python Juntos</h1>
-            <h2>Un viaje para convertir ideas en código.</h2>
+            <h1>🐍 Aprendiendo Python</h1>
+            <h2>Convierte tus ideas en código.</h2>
         </hgroup>
         <nav>
             <ul>
@@ -29,7 +29,7 @@
     <main class="container">
         <section>
             <h2>Nivel 2: Organización y Estructura 🗂️</h2>
-            <p>¡Bienvenida al siguiente nivel! Ahora que ya sabes dar instrucciones básicas, es hora de aprender a organizar mejor la información y a crear herramientas reutilizables. Pasaremos de escribir "scripts" a construir programas más limpios y potentes.</p>
+            <p>Bienvenida al siguiente nivel! Ahora que ya sabes dar instrucciones básicas, es hora de que aprendas a organizar mejor la información y a crear herramientas reutilizables. Pasarás de escribir "scripts" a construir programas más limpios y potentes.</p>
             
             <hr>
 
@@ -44,16 +44,19 @@ compras = ["Manzanas", "Leche", "Pan"]
 # Acceder a un elemento (la numeración empieza en 0)
 print(compras[0])  # Muestra: Manzanas
 
-# Añadir un elemento al final
+#si quieres ver el segundo elemento, pones "1"
+print(compras[1]) #muestra: Leche
+
+# Añadir un elemento al final ".append"
 compras.append("Huevos")
 print(compras) # Muestra: ['Manzanas', 'Leche', 'Pan', 'Huevos']
 
-# Quitar un elemento
+# Quitar un elemento ".remove"
 compras.remove("Leche")
 print(compras) # Muestra: ['Manzanas', 'Pan', 'Huevos']</code></pre>
 
             <h4>Diccionarios `{}`</h4>
-            <p>Un diccionario es una colección de pares <strong>clave-valor</strong>, no ordenada. Imagina una agenda de contactos: la "clave" es el nombre de la persona y el "valor" es su número de teléfono. Son extremadamente útiles para relacionar datos.</p>
+            <p>Un diccionario es una colección de pares <strong>clave-valor</strong>, no ordenada. Imagina una agenda de contactos: la "clave" es el nombre de la persona y el "valor" es su número de teléfono, literalmente como un diccionario. Son extremadamente útiles para relacionar datos.</p>
             <pre><code># Un diccionario para guardar información de una persona
 persona = {
     "nombre": "Ana",
@@ -82,15 +85,15 @@ print(persona) # Muestra el diccionario con la nueva información
             <p>Las funciones pueden recibir "ingredientes" (llamados <strong>parámetros</strong>) y devolver un resultado (con <code>return</code>).</p>
             <pre><code># Definimos una función que saluda a alguien
 def saludar(nombre):
-    mensaje = f"Hola, {nombre}, ¡qué bueno verte!"
+    mensaje = f"Hola {nombre}, qué bueno verte!"
     return mensaje
 
 # Ahora usamos nuestra función
-saludo_para_ana = saludar("Ana")
-print(saludo_para_ana) # Muestra: Hola, Ana, ¡qué bueno verte!
+saludo_para_mary = saludar("Mary")
+print(saludo_para_mary) # Muestra: Hola Mary, qué bueno verte!
 
-saludo_para_juan = saludar("Juan")
-print(saludo_para_juan) # Muestra: Hola, Juan, ¡qué bueno verte!
+saludo_para_pablo = saludar("Pablo")
+print(saludo_para_pablo) # Muestra: Hola Pablo, qué bueno verte!
 </code></pre>
 
             <hr>
@@ -113,10 +116,10 @@ mi_funcion()
 
             <article>
                 <h3>Mini-Proyecto de Cierre: Calculadora de Gastos Personales</h3>
-                <p>¡Es hora de aplicar estos nuevos superpoderes! En este proyecto, crearás una pequeña aplicación para llevar un registro de tus gastos. Usarás listas, diccionarios y funciones para crear un programa estructurado y muy útil.</p>
-                <p>Como siempre, te guiaremos paso a paso para que veas cómo estas herramientas de organización hacen que un programa complejo sea mucho más fácil de construir.</p>
+                <p>Es hora de aplicar estos nuevos conceptos. En este proyecto, crearás una pequeña aplicación para llevar un registro de tus gastos. Usarás listas, diccionarios y funciones para crear un programa estructurado y muy útil.</p>
+                <p>Como siempre, te guiaré paso a paso para que veas cómo estas herramientas de organización hacen que un programa complejo sea mucho más fácil de construir.</p>
                 <footer>
-                    <a href="proyecto2.html" role="button">¡Vamos a organizar las finanzas! 💸</a>
+                    <a href="proyecto2.html" role="button">Haz el Proyecto de la Calculadora Financiera 💸</a>
                 </footer>
             </article>
 
