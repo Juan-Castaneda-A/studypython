@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nivel 3: Aplicaciones Robustas - Aprendiendo Python</title>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css" />
+    
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+    <header class="container">
+        <hgroup>
+            <h1>🐍 Aprendiendo Python</h1>
+            <h2>Convierte tus ideas en código.</h2>
+        </hgroup>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="nivel0.html">Nivel 0</a></li>
+                <li><a href="nivel1.html">Nivel 1</a></li>
+                <li><a href="nivel2.html">Nivel 2</a></li>
+                <li><a href="nivel3.html" class="secondary" aria-current="page">Nivel 3: Robustez</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section>
+            <h2>Nivel 3: Hacia Aplicaciones Robustas 🔩</h2>
+            <p>Has llegado a la etapa avanzada. Ahora aprenderás a pensar como un programador profesional, creando programas que no solo funcionan, sino que son seguros, bien diseñados y capaces de guardar información permanentemente. ¡Vamos a darle vida a tus ideas!</p>
+            
+            <hr>
+
+            <h3>Programación Orientada a Objetos (POO): Modela el Mundo</h3>
+            <p>La POO es una forma de programar que te permite crear "moldes" para las cosas del mundo real. Es la base de casi todo el software moderno.</p>
+            <ul>
+                <li>Una <strong>Clase</strong> es el "plano" o la "plantilla". Por ejemplo, la clase <code>Coche</code>.</li>
+                <li>Un <strong>Objeto</strong> es la "instancia" o la "cosa real" creada a partir del plano. Por ejemplo, <code>mi_coche_rojo</code> y <code>tu_coche_azul</code> son dos objetos de la clase <code>Coche</code>.</li>
+                <li>Los <strong>Atributos</strong> son las características del objeto (su color, marca, modelo).</li>
+                <li>Los <strong>Métodos</strong> son las acciones que el objeto puede hacer (<code>acelerar()</code>, <code>frenar()</code>).</li>
+            </ul>
+            <pre><code># Este es el plano (la Clase)
+class Mascota:
+    # El método __init__ es el "constructor", se ejecuta al crear un objeto
+    def __init__(self, nombre, tipo):
+        self.nombre = nombre # Atributo
+        self.tipo = tipo     # Atributo
+    
+    # Este es un método (una acción)
+    def presentar(self):
+        print(f"Hola, soy un {self.tipo} y me llamo {self.nombre}.")
+
+# Creas dos objetos (instancias) de la clase Mascota
+mascota1 = Mascota("Max", "Perro")
+mascota2 = Mascota("Manchas", "Gato")
+
+# Usas sus métodos
+mascota1.presentar() # Muestra: Hola, soy un Perro y me llamo Fido.
+mascota2.presentar() # Muestra: Hola, soy un Gato y me llamo Misi.
+</code></pre>
+
+            <h4>POO Avanzada</h4>
+            <p>La POO tiene conceptos más profundos como la <strong>Herencia</strong> (una clase "hija" hereda atributos y métodos de una clase "padre"), el <strong>Polimorfismo</strong> y la <strong>Encapsulación</strong>, que aprenderás a medida que avances.</p>
+
+            <hr>
+
+            <h3>Manejo de Errores (`try` / `except`): La Red de Seguridad</h3>
+            <p>Qué pasa si tu programa pide un número y el usuario escribe texto? El programa se "rompe"! Para evitarlo, usarás <code>try...except</code>. Es como decirle a Python: "<strong>Intenta</strong> hacer esto, y si ocurre un error, en lugar de romperte, <strong>haz esto otro</strong>".</p>
+            <pre><code>try:
+    edad = int(input("Introduce tu edad: "))
+    print(f"Tu edad es {edad}.")
+except ValueError:
+    # Este bloque solo se ejecuta si el int() falla
+    print("Error: Eso no es un número válido.")
+</code></pre>
+
+            <hr>
+
+            <h3>Manejo de Módulos:</h3>
+            <p>Cuando un programa crece, no queremos tener todo el código en un solo archivo. Podemos dividirlo en varios archivos <code>.py</code> (llamados <strong>módulos</strong>) y luego importarlos donde los necesitemos. Esto mantiene el proyecto ordenado.</p>
+            <p>Imagina que tienes un archivo <code>operaciones.py</code>:</p>
+            <pre><code># Archivo: operaciones.py
+def sumar(a, b):
+    return a + b</code></pre>
+            <p>Y en tu archivo principal <code>main.py</code>, puedes usarlo así:</p>
+            <pre><code># Archivo: main.py
+import operaciones
+
+resultado = operaciones.sumar(5, 3)
+print(resultado) # Muestra: 8</code></pre>
+
+            <hr>
+
+            <h3>Archivos (`.txt`, `.json`): Guardando Datos Permanentemente</h3>
+            <p>Hasta ahora, toda la información de nuestros programas se pierde cuando los cerramos. Para guardarla, necesitamos escribirla en archivos. El formato <strong>JSON</strong> es perfecto para esto, porque funciona de manera muy natural con los diccionarios y listas de Python.</p>
+            <pre><code>import json # Necesitas importar el módulo json
+
+# diccionario de datos
+datos_usuario = {"nombre": "Ana", "puntos": 150}
+
+# Guardar el diccionario en un archivo
+with open("datos.json", "w") as archivo:
+    json.dump(datos_usuario, archivo)
+
+# Ahora, cerramos y volvemos a abrir el programa...
+# y podemos leer los datos desde el archivo
+with open("datos.json", "r") as archivo:
+    datos_leidos = json.load(archivo)
+    print(datos_leidos["nombre"]) # Muestra: Ana
+</code></pre>
+            
+            <hr>
+
+            <article>
+                <h3>Mini-Proyecto de Cierre: Agenda de Contactos con Guardado</h3>
+                <p>Este es el gran proyecto final de los fundamentos. Vas a crear una agenda de contactos completa que combine todo lo que has visto en este nivel:
+                <ul>
+                    <li>Usarás <strong>Clases</strong> para modelar cada `Contacto`.</li>
+                    <li>Manejarás una lista de objetos `Contacto`.</li>
+                    <li>Usarás <strong>archivos JSON</strong> para guardar y cargar la agenda, ¡para que no pierdas tus contactos!</li>
+                    <li>Implementarás <strong>manejo de errores</strong> para que la aplicación sea robusta.</li>
+                </ul>
+                </p>
+                <footer>
+                    <a href="proyecto3.html" role="button">Construir agenda</a>
+                </footer>
+            </article>
+
+        </section>
+    </main>
+</body>
+</html>
