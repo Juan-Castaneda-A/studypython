@@ -33,9 +33,9 @@
     </header>
 
     <!-- Ejercicios -->
-    <details class="ejercicio-acordeon" id="ejercicio-1">
+    <details class="ejercicio-acordeon" id="ejercicio-repaso-1">
       <summary>
-        <span class="titulo-ejercicio"><strong>Ejercicio 1:</strong> Área de un Triángulo</span>
+        <span class="titulo-ejercicio"><strong>Ejercicio de repaso 1:</strong> Área de un Triángulo</span>
         <span class="info-ejercicio">
           <span class="dificultad facil">Fácil</span>
           <label><input type="checkbox" class="checklist"> Hecho</label>
@@ -95,9 +95,9 @@ print(f"El área del triángulo es: {area}")
       </div>
     </details>
     <!-- SEPARADOR -->
-    <details class="ejercicio-acordeon" id="ejercicio-2">
+    <details class="ejercicio-acordeon" id="ejercicio-repaso-2">
       <summary>
-        <span class="titulo-ejercicio"><strong>Ejercicio 2:</strong> Convertir Temperatura de Celsius a Fahrenheit</span>
+        <span class="titulo-ejercicio"><strong>Ejercicio de repaso 2:</strong> Convertir Temperatura de Celsius a Fahrenheit</span>
         <span class="info-ejercicio">
           <span class="dificultad facil">Fácil</span>
           <label><input type="checkbox" class="checklist"> Hecho</label>
@@ -154,20 +154,463 @@ print(f"La temperatura en Fahrenheit es: {fahrenheit}")
       </div>
     </details> 
     <!-- SEPARADOR -->
-    <details class="ejercicio-acordeon" id="ejercicio-3">
+    <details class="ejercicio-acordeon" id="ejercicio-1">
       <summary>
-        <span class="titulo-ejercicio"><strong>Ejercicio 3:</strong> Números Primos</span>
+        <span class="titulo-ejercicio"><strong>Ejercicio 1:</strong> Longitud de Circunferencia</span>
         <span class="info-ejercicio">
-          <span class="dificultad dificil">Difícil</span>
+          <span class="dificultad facil">Fácil</span>
           <label><input type="checkbox" class="checklist"> Hecho</label>
         </span>
       </summary>
       <div class="contenido-ejercicio">
-        <p><strong>Pistas Claves:</strong> ...</p>
-        <div class="solucion-columnas">...</div>
+        <p><strong>Enunciado:</strong> Diseñe un algoritmo que calcula y muestre la longitud de una circunferencia. Realice una implementación que use el radio y otra que use el diámetro. El algoritmo debe validar los datos.</p>
+        <p><strong>Pistas Claves:</strong></p>
+        <ul>
+            <li>La fórmula con radio es: <code>Longitud = 2 * π * radio</code>.</li>
+            <li>La fórmula con diámetro es: <code>Longitud = π * diámetro</code>.</li>
+            <li>El valor de Pi (π) es aproximadamente 3.14159.</li>
+            <li>Validar los datos significa asegurarse de que el radio o diámetro sean mayores que cero.</li>
+        </ul>
+        <div class="solucion-columnas">
+            <div class="columna">
+            <h4>Pseudocódigo</h4>
+            <button class="boton-revelar" onclick="toggleContenido('solucion-pseudo-3', this)">Mostrar</button>
+            <div id="solucion-pseudo-3" class="contenido-oculto">
+                <pre><code>Algoritmo ConvertirCelsiusAFahrenheit
+	Definir radio,diametro,long Como Real
+	Escribir 'Cálculo usando el radio:'
+	Escribir 'Introduce el radio de la circunferencia:'
+	Leer radio
+	Si radio>0 Entonces
+		long <- 2*PI*radio
+		Escribir 'La longitud es: ',long
+	SiNo
+		Escribir 'El radio debe ser un número positivo.'
+	FinSi
+	Escribir '' // Línea en blanco para separar
+	Escribir 'Cálculo usando el diámetro:'
+	Escribir 'Introduce el diámetro de la circunferencia:'
+	Leer diametro
+	Si diametro>0 Entonces
+		long <- PI*diametro
+		Escribir 'La longitud es: ',long
+	SiNo
+		Escribir 'El diámetro debe ser un número positivo.'
+	FinSi
+FinAlgoritmo</code></pre>
+            </div>
+        </div>
+
+        <div class="columna">
+            <h4>Diagrama de Flujo</h4>
+            <button class="boton-revelar" onclick="toggleContenido('solucion-flujo-3', this)">Mostrar</button>
+            <div id="solucion-flujo-3" class="contenido-oculto">
+                <img src="imagenes/diagrama3.png" alt="Diagrama de flujo para convertir Celsius a Fahrenheit">
+            </div>
+        </div>
+
+        <div class="columna">
+            <h4>Código Python</h4>
+            <button class="boton-revelar" onclick="toggleContenido('solucion-python-3', this)">Mostrar</button>
+            <div id="solucion-python-3" class="contenido-oculto">
+                <pre><code class="language-python">import math # Importamos la librería math para usar PI
+
+# --- Versión con Radio ---
+radio = float(input("Introduce el radio: "))
+
+if radio > 0:
+    longitud = 2 * math.pi * radio
+    print(f"La longitud (con radio) es: {longitud}")
+else:
+    print("Error: el radio debe ser positivo.")
+
+print("-" * 20) # Separador
+
+# --- Versión con Diámetro ---
+diametro = float(input("Introduce el diámetro: "))
+
+if diametro > 0:
+    longitud = math.pi * diametro
+    print(f"La longitud (con diámetro) es: {longitud}")
+else:
+    print("Error: el diámetro debe ser positivo.")
+</code></pre>
+            </div>
+        </div>
+        </div>
+      </div>
+    </details> 
+    <!-- SEPARADOR -->
+     <details class="ejercicio-acordeon" id="ejercicio-3">
+      <summary>
+        <span class="titulo-ejercicio"><strong>Ejercicio 3:</strong> Calcular Hipotenusa</span>
+        <span class="info-ejercicio">
+          <span class="dificultad intermedio">Intermedio</span>
+          <label><input type="checkbox" class="checklist"> Hecho</label>
+        </span>
+      </summary>
+      <div class="contenido-ejercicio">
+        <p><strong>Enunciado:</strong> Diseñe un algoritmo que calcula y muestre la longitud de la hipotenusa de un triángulo rectángulo, pidiendo el valor de sus dos catetos.</p>
+        <p><strong>Pistas Claves:</strong></p>
+        <ul>
+            <li>Usa el Teorema de Pitágoras: <code>a² + b² = c²</code>.</li>
+            <li>Para encontrar la hipotenusa (c), necesitas calcular la raíz cuadrada de (a² + b²).</li>
+            <li>En Python, la raíz cuadrada se puede calcular con <code>math.sqrt()</code> o elevando a 0.5 (<code>**(0.5)</code>).</li>
+        </ul>
+        <div class="solucion-columnas">
+            <div class="columna">
+            <h4>Pseudocódigo</h4>
+            <button class="boton-revelar" onclick="toggleContenido('solucion-pseudo-4', this)">Mostrar</button>
+            <div id="solucion-pseudo-4" class="contenido-oculto">
+                <pre><code>Algoritmo ConvertirCelsiusAFahrenheit
+	Definir catetoA, catetoB, hipotenusa Como Real
+    
+    Escribir "Introduce la longitud del primer cateto:"
+    Leer catetoA
+    Escribir "Introduce la longitud del segundo cateto:"
+    Leer catetoB
+    
+    Si catetoA > 0 Y catetoB > 0 Entonces
+        hipotenusa <- RC(catetoA^2 + catetoB^2)
+        Escribir "La longitud de la hipotenusa es: ", hipotenusa
+    SiNo
+        Escribir "Las longitudes de los catetos deben ser positivas."
+    FinSi
+FinAlgoritmo</code></pre>
+            </div>
+        </div>
+
+        <div class="columna">
+            <h4>Diagrama de Flujo</h4>
+            <button class="boton-revelar" onclick="toggleContenido('solucion-flujo-4', this)">Mostrar</button>
+            <div id="solucion-flujo-4" class="contenido-oculto">
+                <img src="imagenes/diagrama4.png" alt="Diagrama de flujo para calcular la hipotenusa">
+            </div>
+        </div>
+
+        <div class="columna">
+            <h4>Código Python</h4>
+            <button class="boton-revelar" onclick="toggleContenido('solucion-python-4', this)">Mostrar</button>
+            <div id="solucion-python-4" class="contenido-oculto">
+                <pre><code class="language-python">import math
+
+cateto_a = float(input("Introduce el cateto a: "))
+cateto_b = float(input("Introduce el cateto b: "))
+
+if cateto_a > 0 and cateto_b > 0:
+    # Calculamos la suma de los cuadrados
+    suma_cuadrados = (cateto_a ** 2) + (cateto_b ** 2)
+    
+    # Calculamos la raíz cuadrada
+    hipotenusa = math.sqrt(suma_cuadrados)
+    
+    print(f"La hipotenusa es: {hipotenusa}")
+else:
+    print("Error: las longitudes deben ser positivas.")
+</code></pre>
+            </div>
+        </div>
+        </div>
       </div>
     </details>
     <!-- SEPARADOR -->
+     <details class="ejercicio-acordeon" id="ejercicio-4">
+      <summary>
+        <span class="titulo-ejercicio"><strong>Ejercicio 4:</strong> Segundos para el Minuto</span>
+        <span class="info-ejercicio">
+          <span class="dificultad intermedio">Intermedio</span>
+          <label><input type="checkbox" class="checklist"> Hecho</label>
+        </span>
+      </summary>
+      <div class="contenido-ejercicio">
+        <p><strong>Enunciado:</strong> Diseñe un algoritmo que, para un cierto tiempo en segundos, calcule los segundos restantes que le correspondan para convertirse exactamente en minutos.</p>
+        <p><strong>Pistas Claves:</strong></p>
+        <ul>
+            <li>El operador módulo (<code>%</code> en Python, <code>MOD</code> en PSeInt) es la clave. Te da el residuo de una división.</li>
+            <li><code>segundos % 60</code> te dirá cuántos segundos "sobran" después de formar todos los minutos posibles.</li>
+            <li>Si sobran 40 segundos, ¿cuántos faltan para llegar a 60?</li>
+            <li>¿Qué pasa si sobran 0 segundos (es un minuto exacto)?</li>
+        </ul>
+        <div class="solucion-columnas">
+            <div class="columna">
+            <h4>Pseudocódigo</h4>
+            <button class="boton-revelar" onclick="toggleContenido('solucion-pseudo-5', this)">Mostrar</button>
+            <div id="solucion-pseudo-5" class="contenido-oculto">
+                <pre><code>Algoritmo SegundosRestantes
+    Definir segundos_totales, segundos_sobrantes, segundos_faltantes Como Entero
+    
+    Escribir "Introduce una cantidad de segundos:"
+    Leer segundos_totales
+    
+    Si segundos_totales >= 0 Entonces
+        segundos_sobrantes <- segundos_totales MOD 60
+        
+        Si segundos_sobrantes == 0 Entonces
+            segundos_faltantes <- 0
+        SiNo
+            segundos_faltantes <- 60 - segundos_sobrantes
+        FinSi
+        
+        Escribir "Faltan ", segundos_faltantes, " segundos para el siguiente minuto."
+    SiNo
+        Escribir "Los segundos no pueden ser negativos."
+    FinSi
+FinAlgoritmo</code></pre>
+            </div>
+        </div>
+
+        <div class="columna">
+            <h4>Diagrama de Flujo</h4>
+            <button class="boton-revelar" onclick="toggleContenido('solucion-flujo-5', this)">Mostrar</button>
+            <div id="solucion-flujo-5" class="contenido-oculto">
+                <img src="imagenes/diagrama5.png" alt="Diagrama de flujo para calcular los segundos restantes">
+            </div>
+        </div>
+
+        <div class="columna">
+            <h4>Código Python</h4>
+            <button class="boton-revelar" onclick="toggleContenido('solucion-python-5', this)">Mostrar</button>
+            <div id="solucion-python-5" class="contenido-oculto">
+                <pre><code class="language-python">segundos_totales = int(input("Introduce los segundos: "))
+
+if segundos_totales >= 0:
+    # Calculamos cuántos segundos 'sobran' del último minuto
+    segundos_sobrantes = segundos_totales % 60
+    
+    if segundos_sobrantes == 0:
+        # Si es un minuto exacto, no falta nada
+        segundos_faltantes = 0
+    else:
+        # Si no, calculamos lo que falta para llegar a 60
+        segundos_faltantes = 60 - segundos_sobrantes
+        
+    print(f"Faltan {segundos_faltantes} segundos para completar el siguiente minuto.")
+else:
+    print("Error: los segundos no pueden ser negativos.") 
+</code></pre>
+            </div>
+        </div>
+        </div>
+      </div>
+    </details>
+    <!-- SEPARADOR -->
+     <details class="ejercicio-acordeon" id="ejercicio-6">
+    <summary>
+        <span class="titulo-ejercicio"><strong>Ejercicio 6:</strong> Número Par o Impar</span>
+        <span class="info-ejercicio">
+            <span class="dificultad facil">Fácil</span>
+            <label><input type="checkbox" class="checklist"> Hecho</label>
+        </span>
+    </summary>
+    <div class="contenido-ejercicio">
+        <p><strong>Enunciado:</strong> Diseñe un algoritmo que determine si un número entero ingresado es par o impar.</p>
+        <p><strong>Pistas Claves:</strong></p>
+        <ul>
+            <li>Un número es par si al dividirlo por 2, su residuo es 0.</li>
+            <li>El operador módulo (<code>%</code> o <code>MOD</code>) es perfecto para esto.</li>
+        </ul>
+        <div class="solucion-columnas">
+            <div class="columna">
+                <h4>Pseudocódigo</h4>
+                <button class="boton-revelar" onclick="toggleContenido('solucion-pseudo-6', this)">Mostrar</button>
+                <div id="solucion-pseudo-6" class="contenido-oculto">
+                    <pre><code>Algoritmo ParImpar
+    Definir numero Como Entero
+    
+    Escribir "Introduce un número entero:"
+    Leer numero
+    
+    Si numero MOD 2 == 0 Entonces
+        Escribir "El número ", numero, " es PAR."
+    SiNo
+        Escribir "El número ", numero, " es IMPAR."
+    FinSi
+FinAlgoritmo</code></pre>
+                </div>
+            </div>
+            <div class="columna">
+                <h4>Diagrama de Flujo</h4>
+                <button class="boton-revelar" onclick="toggleContenido('solucion-flujo-6', this)">Mostrar</button>
+                <div id="solucion-flujo-6" class="contenido-oculto">
+                    <img src="imagenes/diagrama6.png" alt="Diagrama de flujo para determinar si un número es par o impar.">
+                </div>
+            </div>
+            <div class="columna">
+                <h4>Código Python</h4>
+                <button class="boton-revelar" onclick="toggleContenido('solucion-python-6', this)">Mostrar</button>
+                <div id="solucion-python-6" class="contenido-oculto">
+                    <pre><code class="language-python">numero = int(input("Introduce un número entero: "))
+
+# Si el residuo de dividir por 2 es 0, es par
+if numero % 2 == 0:
+    print(f"El número {numero} es PAR.")
+else:
+    print(f"El número {numero} es IMPAR.")
+</code></pre>
+                </div>
+            </div>
+        </div>
+    </div>
+</details>
+<hr>
+<!-- SEPARADOR -->
+ <details class="ejercicio-acordeon" id="ejercicio-10">
+    <summary>
+        <span class="titulo-ejercicio"><strong>Ejercicio 10:</strong> El Mayor de Dos Números</span>
+        <span class="info-ejercicio">
+            <span class="dificultad facil">Fácil</span>
+            <label><input type="checkbox" class="checklist"> Hecho</label>
+        </span>
+    </summary>
+    <div class="contenido-ejercicio">
+        <p><strong>Enunciado:</strong> Diseñe un algoritmo que permita ingresar dos números y muestre el mayor de estos.</p>
+        <p><strong>Pistas Claves:</strong></p>
+        <ul>
+            <li>Necesitas comparar el primer número con el segundo.</li>
+            <li>Usa una estructura <code>Si... Sino...</code> (<code>if... else...</code>).</li>
+            <li>Considera el caso en que ambos números sean iguales.</li>
+        </ul>
+        <div class="solucion-columnas">
+            <div class="columna">
+                <h4>Pseudocódigo</h4>
+                <button class="boton-revelar" onclick="toggleContenido('solucion-pseudo-10', this)">Mostrar</button>
+                <div id="solucion-pseudo-10" class="contenido-oculto">
+                    <pre><code>Algoritmo MayorDeDos
+    Definir num1, num2 Como Real
+    
+    Escribir "Introduce el primer número:"
+    Leer num1
+    Escribir "Introduce el segundo número:"
+    Leer num2
+    
+    Si num1 > num2 Entonces
+        Escribir "El mayor es: ", num1
+    SiNo
+        Si num2 > num1 Entonces
+            Escribir "El mayor es: ", num2
+        SiNo
+            Escribir "Ambos números son iguales."
+        FinSi
+    FinSi
+FinAlgoritmo</code></pre>
+                </div>
+            </div>
+            <div class="columna">
+                <h4>Diagrama de Flujo</h4>
+                <button class="boton-revelar" onclick="toggleContenido('solucion-flujo-10', this)">Mostrar</button>
+                <div id="solucion-flujo-10" class="contenido-oculto">
+                    <img src="imagenes/diagrama10.png" alt="Diagrama de flujo para encontrar el mayor de dos números.">
+                </div>
+            </div>
+            <div class="columna">
+                <h4>Código Python</h4>
+                <button class="boton-revelar" onclick="toggleContenido('solucion-python-10', this)">Mostrar</button>
+                <div id="solucion-python-10" class="contenido-oculto">
+                    <pre><code class="language-python">num1 = float(input("Introduce el primer número: "))
+num2 = float(input("Introduce el segundo número: "))
+
+if num1 > num2:
+    print(f"El mayor es: {num1}")
+elif num2 > num1:
+    print(f"El mayor es: {num2}")
+else:
+    print("Ambos números son iguales.")
+</code></pre>
+                </div>
+            </div>
+        </div>
+    </div>
+</details>
+<hr>
+<!-- SEPARADOR -->
+<details class="ejercicio-acordeon" id="ejercicio-13">
+    <summary>
+        <span class="titulo-ejercicio"><strong>Ejercicio 13:</strong> Etapas de la Vida</span>
+        <span class="info-ejercicio">
+            <span class="dificultad intermedio">Intermedio</span>
+            <label><input type="checkbox" class="checklist"> Hecho</label>
+        </span>
+    </summary>
+    <div class="contenido-ejercicio">
+        <p><strong>Enunciado:</strong> Diseñe un algoritmo que, al ingresar la edad de una persona, muestre el mensaje correspondiente a su etapa de vida (NIÑO, PUBER, ADOLESCENTE, JOVEN, ADULTO, ANCIANO).</p>
+        <p><strong>Pistas Claves:</strong></p>
+        <ul>
+            <li>Este es un caso perfecto para usar condicionales anidados o una cadena de <code>SiNo Si...</code> (<code>elif</code> en Python).</li>
+            <li>Define claramente los rangos: NIÑO (<=10), PUBER (11-14), ADOLESCENTE (15-18), JOVEN (19-25), ADULTO (26-65), ANCIANO (>65).</li>
+            <li>Valida que la edad no sea un número negativo.</li>
+        </ul>
+        <div class="solucion-columnas">
+            <div class="columna">
+                <h4>Pseudocódigo</h4>
+                <button class="boton-revelar" onclick="toggleContenido('solucion-pseudo-13', this)">Mostrar</button>
+                <div id="solucion-pseudo-13" class="contenido-oculto">
+                    <pre><code>Algoritmo EtapasVida
+    Definir edad Como Entero
+    
+    Escribir "Introduce la edad:"
+    Leer edad
+    
+    Si edad >= 0 Entonces
+        Si edad <= 10 Entonces
+            Escribir "NIÑO"
+        SiNo
+            Si edad <= 14 Entonces
+                Escribir "PUBER"
+            SiNo
+                Si edad <= 18 Entonces
+                    Escribir "ADOLESCENTE"
+                SiNo
+                    Si edad <= 25 Entonces
+                        Escribir "JOVEN"
+                    SiNo
+                        Si edad <= 65 Entonces
+                            Escribir "ADULTO"
+                        SiNo
+                            Escribir "ANCIANO"
+                        FinSi
+                    FinSi
+                FinSi
+            FinSi
+        FinSi
+    SiNo
+        Escribir "La edad no puede ser negativa."
+    FinSi
+FinAlgoritmo</code></pre>
+                </div>
+            </div>
+            <div class="columna">
+                <h4>Diagrama de Flujo</h4>
+                <button class="boton-revelar" onclick="toggleContenido('solucion-flujo-13', this)">Mostrar</button>
+                <div id="solucion-flujo-13" class="contenido-oculto">
+                    <img src="imagenes/diagrama13.png" alt="Diagrama de flujo para clasificar la edad de una persona.">
+                </div>
+            </div>
+            <div class="columna">
+                <h4>Código Python</h4>
+                <button class="boton-revelar" onclick="toggleContenido('solucion-python-13', this)">Mostrar</button>
+                <div id="solucion-python-13" class="contenido-oculto">
+                    <pre><code class="language-python">edad = int(input("Introduce la edad: "))
+
+if edad < 0:
+    print("Error: la edad no puede ser negativa.")
+elif edad <= 10:
+    print("NIÑO")
+elif edad <= 14:
+    print("PUBER")
+elif edad <= 18:
+    print("ADOLESCENTE")
+elif edad <= 25:
+    print("JOVEN")
+elif edad <= 65:
+    print("ADULTO")
+else: # Si no es ninguna de las anteriores, es mayor de 65
+    print("ANCIANO")
+</code></pre>
+                </div>
+            </div>
+        </div>
+    </div>
+</details>
   </main>
 
   <!-- Scripts -->
